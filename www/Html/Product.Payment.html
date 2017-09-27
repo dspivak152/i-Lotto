@@ -1,0 +1,66 @@
+﻿<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <!-- Statistics -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    <form class="ContactForm" name="PayForm" ng-submit="SaveForm(Model)" novalidate>
+
+                        <div class="no-mony">
+                            <div class="chat-bubble3">
+                                <div>{{FormMessagesModel.formNoMony}}</div>
+                                <div ng-hide="UseService">
+                                    <translat key-val="להשלמת שליחת הטופס תועבר לעמוד תשלום על מנת להפקיד כסף בחשבון" key-path="Product.Payment.html"></translat>
+                                </div>
+                                <div ng-show="UseService">
+                                    <translat key-val="תשלום הטופס יבוצע בשימוש בכרטיס האשראי שנשמר במערכת" key-path="Product.Payment.html"></translat>
+                                </div>
+                                <div style="text-align: center; margin-bottom: 18px; margin-top: 16px;" ng-show="userCredentials.UseCreditToken">
+                                    <div style="width:100%;margin: 10px 0 10px 0;" ng-show="userCredentials.UseCreditToken">
+                                        <div class="checkbox checkbox-info" style="float: right; width: 29%;">
+                                            <input type="checkbox" id="UseService-radio" ng-model="UseService">
+                                            <label for="UseService-radio"></label>
+                                        </div>
+                                        <div class="saved-number">
+                                            {{userCredentials.CreditNumber}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="userCredentials.UseCreditToken">
+                                    <a href="#" ng-show="UseService" ng-click="SaveForm(1)" style="color: transparent;">
+                                        <button class="no_money_button pay_no_btn" style="background-color: #98d740;color: #272a6d;">
+                                            <translat key-val="תשלום עם כרטיס שמור" key-path="Product.Payment.html"></translat>
+                                        </button>
+                                    </a>
+                                    <a href="#" ng-show="!UseService" ng-click="SaveForm(2)">
+                                        <button class="no_money_button " style="background-color: #272a6d;color: white;">
+                                            <translat key-val="תשלום" key-path="Product.Payment.html"></translat>
+                                        </button>
+                                    </a>
+                                    <a href="#" ng-click="broadcastHome()" class="">
+                                        <button class="no_money_button " style="background-color: #272a6d;color: white;">
+                                            <translat key-val="ביטול" key-path="Product.Payment.html"></translat>
+                                        </button>
+                                    </a>
+                                </div>
+                                <div ng-hide="userCredentials.UseCreditToken">
+                                    <a href="#" ng-click="SaveForm(2)" style="color: transparent;">
+                                        <button class="no_money_button pay_no_btn" style="background-color: #98d740;color: #272a6d;">
+                                            <translat key-val="לתשלום" key-path="Product.Payment.html"></translat>
+                                        </button>
+                                    </a>
+                                    <a href="#" ng-click="broadcastHome()" class="">
+                                        <button class="no_money_button " style="background-color: #272a6d;color: white;"><translat key-val="ביטול" key-path="Product.Payment.html"></translat></button>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

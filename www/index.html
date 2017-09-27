@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="IlottoApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>ILotto.co.il</title>
+    <meta name="description" content="ILotto.co.il">
+    <meta name="author" content="G&D software solutions">
+    <link href="style/css/style.css" rel="stylesheet" type="text/css">
+    <link href="style/css/navigation.css" media="all" rel="stylesheet" type="text/css">
+    <link href="style/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="style/css/nav.css" media="all" rel="stylesheet" type="text/css">
+    <link href="style/css/index.css" media="all" rel="stylesheet" type="text/css">
+    <link href="style/css/media.css" media="all" rel="stylesheet" type="text/css">
+    <link href="style/css/Angular-css/angular-ui-notification.min.css" rel="stylesheet" />
+    <!-- END ng-notification CSS -->
+    <!-- ngDialog CSS -->
+    <link href="style/css/Angular-css/ngDialog-custom-width.css" rel="stylesheet" />
+    <link href="style/css/Angular-css/ngDialog-theme-default.min.css" rel="stylesheet" />
+    <link href="style/css/Angular-css/ngDialog-theme-plain.min.css" rel="stylesheet" />
+    <link href="style/css/Angular-css/ngDialog.min.css" rel="stylesheet" />
+    <!-- END ngDialog CSS -->
+    <!-- END CSS -->
+    <!-- scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/modernizr-2.6.2.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="js/underscore/underscore-min.js"></script>
+    <script src="js/underscore/underscore.string.min.js"></script>
+    <script src="js/jquery.blockUI.js"></script>
+    <!-- END scripts -->
+    <!-- angular JS -->
+    <script src="js/Angular/angular.js"></script>
+    <script src="js/Angular/angular-route.min.js"></script>
+    <script src="js/Angular/angular-sanitize.min.js"></script>
+    <script src="js/Angular/angular-animate.min.js"></script>
+    <script src="js/Angular/angular-cookies.min.js"></script>
+    <script src="js/Angular/angular-ui-router.min.js"></script>
+    <script src="js/Angular/angular-local-storage.min.js"></script>
+    <script src="js/Angular/angular-ui-notification.min.js"></script>
+    <script src="js/Angular/ngDialog.min.js"></script>
+    <script src="js/Angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <!-- END angular JS -->
+    <!--<script src="js/bundle.js"></script>-->
+</head>
+
+<body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/openfb.js"></script>
+    
+    <div ui-view></div>
+    <div id="cards"></div>
+    <!-- angular app-->
+
+    <script src="js/AngularApp/App.js"></script>
+    <!-- angular Filters-->
+    <script src="js/AngularApp/Filters/ProductFiltrs.js"></script>
+    <script src="js/AngularApp/Filters/objectFilter.js"></script>
+    <!-- angular Services-->
+    <script src="js/AngularApp/Services/LogInService.js"></script>
+    <script src="js/AngularApp/Services/DataModelsService.js"></script>
+    <script src="js/AngularApp/Services/MenuService.js"></script>
+    <script src="js/AngularApp/Services/NotificationService.js"></script>
+    <script src="js/AngularApp/Services/PaymentService.js"></script>
+    <script src="js/AngularApp/Services/ProductService.js"></script>
+    <script src="js/AngularApp/Services/PersonalAreaService.js"></script>
+    <script src="js/AngularApp/Services/ModalServic.js"></script>
+    <!-- angular Directives-->
+    <script src="js/AngularApp/Directives/nevigationDirective.js"></script>
+    <script src="js/AngularApp/Directives/TranslatDirective.js"></script>
+    <script src="js/AngularApp/Directives/InnerMenuDirective.js"></script>
+    <script src="js/AngularApp/Directives/CountdownDirective.js"></script>
+    <script src="js/AngularApp/Directives/ButtonsDirective.js"></script>
+    <script src="js/AngularApp/Directives/otcDynamicDirective.js"></script>
+    <script src="js/AngularApp/Directives/ModalDirective.js"></script>
+    <!-- angular Controllers-->
+    <script src="js/AngularApp/Controllers/WithdrawalController.js"></script>
+    <script src="js/AngularApp/Controllers/DepositController.js"></script>
+    <script src="js/AngularApp/Controllers/HomeController.js"></script>
+    <script src="js/AngularApp/Controllers/LogInController.js"></script>
+    <script src="js/AngularApp/Controllers/PagesController.js"></script>
+    <script src="js/AngularApp/Controllers/PaymentDecisionController.js"></script>
+    <script src="js/AngularApp/Controllers/ProductController.js"></script>
+    <script src="js/AngularApp/Controllers/ProductPaymentController.js"></script>
+    <script src="js/AngularApp/Controllers/RegisterController.js"></script>
+    <script src="js/AngularApp/Controllers/SaveFormNameController.js"></script>
+    <script src="js/AngularApp/Controllers/ContactUsController.js"></script>
+    <script src="js/AngularApp/Controllers/ForgotPasswordController.js"></script>
+    <script src="js/AngularApp/Controllers/FormSelectionController.js"></script>
+    <script src="js/AngularApp/Controllers/ProductSummeryController.js"></script>
+    <script src="js/AngularApp/Controllers/PersonalAreaController.js"></script>
+    <script src="js/AngularApp/Controllers/ShowFormController.js"></script>
+    <script src="js/AngularApp/Controllers/SweepstakesArchiveController.js"></script>
+    <script src="js/AngularApp/Controllers/UpdateDetailsController.js"></script>
+    <!-- END angular app-->
+</body>
+
+</html>

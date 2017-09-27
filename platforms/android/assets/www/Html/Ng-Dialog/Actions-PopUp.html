@@ -1,0 +1,36 @@
+﻿<div class="ngdialog-content select-popup">
+    <div class="ngdialog-message">
+
+        <fieldset>
+            
+            <div class="yallow_slite_bg">
+                <translat key-val="פעולות" key-path="Show-Form.html"></translat>
+            </div>
+            
+            <div class="yallow_br form-tables-br">
+
+                <div class="form-table">
+                    <div>
+                        <div class="actions">
+                            <button type="button" class="btn btn-primary btn-sm btn-block duplicate"
+                                    ng-click="ShowForm($form)">
+                                <translat key-val="הצג נתוני טופס" key-path="PersonalArea.html"></translat>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-sm btn-block duplicate"
+                                    ng-click="Duplicate($form)">
+                                <translat key-val="שלח שוב (שכפל)" key-path="PersonalArea.html"></translat>
+                            </button>
+
+                            <button ng-show="$form.ShowScan" type="button" class="btn btn-primary btn-sm btn-block duplicate"
+                                    ng-click="ShowScandForm($form)">
+                                <translat key-val="הצג טופס סרוק" key-path="PersonalArea.html"></translat>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+</div>

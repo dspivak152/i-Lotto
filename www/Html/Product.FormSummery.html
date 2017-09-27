@@ -1,0 +1,213 @@
+<link href="style/css/style1.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+            	<p class="summery_text cot_summery" >
+                    <translat key-val="סיכום עסקה" key-path="Product.FormSummery.html"></translat>
+                </p>
+                <div class="widget-container stats-container summery_container">
+                    <div class="summery_row">
+                    	<div class="sum_row">
+                    		<p class="summery_row_text_right" >
+                                <translat key-val="סוג טופס:" key-path="Product.FormSummery.html"></translat>
+                                <span style="font-weight: bold;">{{Title}}</span>
+                            </p>
+	                    	<p class="summery_row_text_left" >
+                                <translat key-val="כמות טבלאות:" key-path="Product.FormSummery.html"></translat>
+                                <span style="font-weight: bold;">{{CalcFormData.numberForms}}</span>
+                            </p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                    </div>
+                    <div class="summery_row">
+                    	<div class="sum_row">
+                    		<p class="sum_row extra_line">
+                    			<span>
+                                    <translat key-val="משתתף בהגרלת ה" key-path="Product.FormSummery.html"></translat>
+                                </span>
+                                <img class="extra_img"  src="style/images/extra.jpg" style="" >
+                                <!--(<translat key-val="עלות" key-path="Product.FormSummery.html"></translat> ₪{{FormCostModel.ExtraPrice}})
+                                <label class="checkbox text-left register_agree form-summery">
+
+                                    <input type="checkbox" id="Extra-radio1" class="css-checkbox" ng-model="FormsSettingsModel.Extra" ng-change="ReCalcForm()" />
+                                    <span class="havecheckbox"></span>
+                                </label>-->
+                                 <span ng-show="FormsSettingsModel.Extra" class="blue_text summery_row_text_left" style="float:left;">
+                                    ₪{{FormCostModel.ExtraPrice}}
+                                </span>
+                                <span ng-hide="FormsSettingsModel.Extra" style="width: 19px;height: 20px;display: block;position: absolute;">
+                                </span>
+                                <input type="checkbox" id="Extra-radio1" ng-model="FormsSettingsModel.Extra" class="check_credit css-checkbox" style="display: block;float: right;" ng-change="ReCalcForm()">
+                			</p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                    	<div class="sum_row">
+                    		<p class="summery_row_text_right" >
+                                <translat key-val="עלות מפעל הפיס" key-path="Product.FormSummery.html"></translat>
+                            </p>
+	                    	<p class="summery_row_text_left blue_text" >₪{{FormCostModel.TotalLottery}}</p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                    	<div class="sum_row">
+                    		<p class="summery_row_text_right" style="direction: RTL;">
+                                <translat key-val="עמלת שרות (עבור הגרלה)" key-path="Product.FormSummery.html"></translat>
+                            </p>
+	                    	<p class="summery_row_text_left blue_text" >₪{{FormCostModel.FormCommission}}</p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                    	<div class="sum_row">
+                    		<p class="summery_row_text_right" >
+                                <translat key-val="עלות טופס להגרלה" key-path="Product.FormSummery.html"></translat>
+                            </p>
+	                    	<p class="summery_row_text_left blue_text" >₪{{FormCostModel.SingleFormCost}}</p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                    </div>
+                    <div class="summery_row" >
+                    	<div class="sum_row">
+                    		<p class="summery_row_text_right blue_text" style="direction: rtl;">
+                                <translat key-val="כמות ההגרלות בהן תרצה להשתתף:" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                    		<div style="clear: both;"></div>
+                    	</div>
+                    	<div class="sum_row" >
+                    		<p style="width: 40%;" class="summery_row_text_right">
+                                <translat key-val="בחר מספר הגרלות" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                    		<select style="width: 40%;" class="list summery_row_text_left" ng-model="CalcFormData.numberRuffels_Selected" ng-change="ReCalcForm()" ng-options="option.name for option in MaxRaffles track by option.id"></select>
+                    		<div style="clear: both;"></div>
+                    	</div>
+                    	<div class="sum_row" ng-hide="CalcFormData.numberRuffels_Selected.id - 1 == 0">
+                    		<p class="summery_row_text_right" style="width: 40%;" >
+                                <span class="blue_text" style="margin-right: 8px;" >{{RuffleNumbers[0].number}}</span>
+                                <translat key-val="מהגרלה" key-path="Product.FormSummery.html"></translat>
+                            </p>
+	                    	<p class="summery_row_text_left" style="width: 40%;text-align: right;" >
+                                <span class="blue_text" style="margin-right: 8px;">{{RuffleNumbers[ CalcFormData.numberRuffels_Selected.id - 1].number}}</span>
+                                <translat key-val="עד הגרלה" key-path="Product.FormSummery.html"></translat>
+                            </p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                        <div class="sum_row" ng-hide="CalcFormData.numberRuffels_Selected.id - 1 > 0">
+                            <p class="summery_row_text_right" style="width: 40%;">
+                                <span class="blue_text" style="margin-right: 8px;">{{RuffleNumbers[0].number}}</span>
+                                <translat key-val="משתתף בהגרלה" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                            <div style="clear: both;"></div>
+                        </div>
+                    	<div class="sum_row" ng-show="CalcFormData.numberRuffels > 8">
+                    		<p class="summery_row_text_right" >
+                                <translat key-val="כמות תשלומים" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                            <p class="summery_row_text_right extra ng-binding">
+                                <translat key-val="(למשלמים בכרטיס אשראי)" key-path="Product.FormSummery.html"></translat>
+                            </p>
+	                    	<p class="summery_row_text_left blue_text" >{{paymentsNumber}}</p>
+	                    	<div style="clear: both;"></div>
+                    	</div>
+                        <div class="sum_row" ng-show="CalcFormData.numberRuffels > 8">
+                            <p class="summery_row_text_right">
+                                <translat key-val=":סכום כל תשלום" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                            <p class="summery_row_text_left blue_text">₪{{FormCostModel.Total / paymentsNumber}}</p>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="sum_row_bottom" style="background-color: #e2b4b6" >
+                		<p class="summery_row_text_right blue_text" style="direction: rtl;" >
+                            <translat key-val='סה"כ עלות:' key-path="Product.FormSummery.html"></translat>
+                        </p>
+                    	<p class="summery_row_text_left blue_text" >₪{{FormCostModel.Total}}</p>
+                    	<div style="clear: both;"></div>
+                	</div>
+                	<div class="sum_row_bottom" ng-show="IdentityNumber !== null">
+                		<p class="summery_row_text_right" style="font-size: 12px;">
+                            <translat key-val="ארבע ספרות אחרונות בתעודת זהות" key-path="Product.FormSummery.html"></translat>
+                        </p>
+                    	<p class="summery_row_text_left" style="font-size: 12px;" >{{IdentityNumber}}</p>
+                    	<div style="clear: both;"></div>
+                	</div>
+                	<div class="sum_row_bottom" >
+                		<button class="sum_button" ng-disabled="allowSend" style="background-color: #98d740;color: #272a6d;float: left;cursor: pointer;" ng-click="SendForm()" >
+                            <p>
+                                <translat key-val="שלח" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                        </button>
+                		<button class="sum_button" style="background-color: #272a6d;color: white;float: right;cursor: pointer;" ng-click="SaveFormName()" >
+                            <p>
+                                <translat key-val="שמור טופס" key-path="Product.FormSummery.html"></translat>
+                            </p>
+                        </button>
+                        <div style="clear:both"></div>
+                	</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+ .checkbox, .radio {
+ display: inline-block;
+ margin-top: 0px;
+ margin-bottom: 0px;
+ width: 22px;
+ height: 22px;
+ position: relative;
+ float: left;
+ margin-left: 10px !important;
+}
+
+ .checkbox label::before {
+ content: "";
+ display: inline-block;
+ position: absolute;
+ width: 23px;
+ height: 21px;
+ left: 0;
+ border-radius: 0px;
+ background-color: #fff;
+ -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+ -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+ transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+ top: 2px;
+}
+
+ .checkbox-info input[type="checkbox"]:checked + label::before {
+ background-color: white;
+ border-color: white;
+}
+
+ .checkbox input[type="checkbox"]:checked + label::after {
+ font-family: 'FontAwesome';
+ content: "\f00c";
+}
+
+ .checkbox-info input[type="checkbox"]:checked + label::after {
+ color: #606060;
+ font-size: 17px;
+}
+
+ .checkbox label::after {
+ display: inline-block;
+ position: absolute;
+ width: 16px;
+ height: 16px;
+ left: 2px;
+ top: 3px;
+ padding-left: 2px;
+ padding-top: 1px;
+ font-size: 11px;
+ color: #555555;
+}
+
+ .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+ margin-left: 0px;
+ margin-top: 7px;
+}
+</style>

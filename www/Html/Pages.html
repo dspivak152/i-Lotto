@@ -1,0 +1,49 @@
+﻿<link href="style/css/style1.css" rel="stylesheet" type="text/css">
+<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <!-- Statistics -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    
+                    <div class="contianer info-page" >
+                        <div class="sec_p_yallw_strip width65 ng-binding" style="height: auto;">{{title}}</div>
+                        <div class="chat-bubble3">
+                            <div ng-repeat="qa in pagesList track by $index">
+                                <div class="question" ng-click="showA(qa)">
+                                    <span ng-show="qa.hidden">&dtrif;</span>
+                                    <span ng-hide="qa.hidden">&utrif; </span>
+                                    <div otc-dynamic html="{{qa.Question}}"></div>
+                                </div>
+
+                                <div class="answer" ng-class="{'fade-answer': qa.hidden}" otc-dynamic html="{{qa.Answer}}"></div>
+                            </div>                          
+
+                            <div otc-dynamic html="{{$Page.Image1}}"></div>
+
+                            <div ng-show="$Page.show-Image1" class="seprator"></div>
+
+                            <div otc-dynamic html="{{$Page.SubTitle}}"></div>
+
+                            <div ng-show="$Page.show-SubTitle" class="seprator"></div>
+
+                            <div otc-dynamic html="{{$Page.ShortText}}"></div>
+
+                            <div ng-show="$Page.show-ShortText" class="seprator"></div>
+
+                            <div otc-dynamic html="{{$Page.Text}}"></div>
+
+                            <div ng-show="$Page.show-Text" class="seprator"></div>
+
+                            <div otc-dynamic html="{{$Page.Image2}}"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

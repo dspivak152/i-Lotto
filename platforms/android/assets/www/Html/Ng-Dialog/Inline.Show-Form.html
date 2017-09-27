@@ -1,0 +1,112 @@
+<div>
+    <div class="result_row">
+        <div class="xs-3">
+            <p>
+                {{form.BaseFormTypeName}}
+                <span class="blue_result">{{form.RaffleType}}</span>
+            </p>
+        </div>
+        <div class="xs-3">
+            <p>
+                <translat key-val="עלות:" key-path="Inline.Show-Form.html"></translat>
+                <span class="blue_result">{{form.FormLottery}}</span>
+            </p>
+        </div>
+        <div class="xs-3" ng-show="form.$$winShow">
+            <p>
+                <translat key-val="זכיות:" key-path="Inline.Show-Form.html"></translat>
+                <span class="blue_result">{{form.Reward}}</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="result_row extra_row" ng-show="form.Extra && form.ExtraNumbersArray.length > 0" >
+        <table class="details">
+            <tr ng-show="form.raffle.ExtraNumbers.length > 0">
+                <td style="width: 36%;">
+                    <translat key-val="תוצאות" key-path="Inline.Show-Form.html"></translat>
+                    <img src="style/images/extra.jpg" class="extra-showForm" style="width: 45px;margin-right: 5px;margin-bottom: -6px;">
+                </td>
+                <td>
+                    <label class="result_number blue_result" ng-repeat="num in form.raffle.ExtraNumbers track by $index">
+                        <span>
+                            {{num}}
+                        </span>
+                    </label>
+                </td>
+            </tr>
+            <tr ng-hide="form.raffle.ExtraNumbers.length > 0">
+                <td style="width: 36%;"></td><td></td>
+            </tr>
+            <tr>
+                <td><translat key-val="ניחושי אקסטרה:" key-path="Inline.Show-Form.html"></translat></td>
+                <td>
+                    <label class="result_number blue_result" ng-repeat="num in form.ExtraNumbersArray track by $index" ng-class="{'win' : num.Win}">
+                        <span>{{num.number}}</span>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row_line" ng-show="form.Check">
+        <p class="p_right">
+            <translat key-val="תוצאת הגרלה:" key-path="Inline.Show-Form.html"></translat>
+        </p>
+        <table class="details">
+            <tr>
+                <td> <translat key-val="מספרים" key-path="Inline.Show-Form.html"></translat></td>
+
+                <td> <translat key-val="חזק" key-path="Inline.Show-Form.html"></translat></td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <span ng-repeat="num in form.raffle.Numbers track by $index">
+                        {{num}}
+                    </span>
+                </td>
+                <td valign="top">
+                    <span ng-repeat="num in form.raffle.Strong track by $index">
+                        {{num}}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <p class="p_right">
+        <translat key-val="נתוני טופס:" key-path="Inline.Show-Form.html"></translat>
+    </p>
+
+    <table class="details">
+        <tr><td valign="top"> <translat key-val="מספרים" key-path="Inline.Show-Form.html"></translat></td><td> <translat key-val="חזק" key-path="Inline.Show-Form.html"></translat></td></tr>
+        <tr ng-repeat="table in form.Tables track by $index">
+            <td>
+                <div ng-repeat="numbersobj in table.HNumbersObj track by $index" class="numbers-rapper">
+                    <label class="result_number" ng-class="{'win' : num.Win}" ng-repeat="num in numbersobj track by $index">
+                        <span>{{num.number}}</span>
+                    </label>
+                </div>
+            </td>
+            <td valign="top">
+                <div ng-repeat="strongobj in table.HStrongObj track by $index" class="numbers-rapper">
+                    <label class="result_number" ng-class="{'win' : num.Win}" ng-repeat="num in strongobj track by $index">
+                        <span>{{num.number}}</span>
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="row_line result_buttons">
+        <p class="commission">
+            עמלה:
+            {{form.FormCommission}}
+        </p>
+        <button ng-show="form.ShowScan" class="first_b sin_in_up blue" style="" ng-click="ShowScandForm(form)">
+            <translat key-val="הצג טופס סרוק" key-path="PersonalArea.html"></translat>
+        </button>
+        <button class="second_b sin_in_up green" style="" ng-click="Duplicate(form)">
+            <translat key-val="שכפל" key-path="PersonalArea.html"></translat>
+        </button>
+    </div>
+</div>

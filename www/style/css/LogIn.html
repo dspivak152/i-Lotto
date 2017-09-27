@@ -1,0 +1,124 @@
+<!-- START google login-->
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="994611551395-30p2uhl1thoci46a73lka9m6t10jkufr.apps.googleusercontent.com">
+<!-- END google login-->
+<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    <!-- MIDDLE PAGE CONTANT START-->
+                    <div class="contianer">
+                        <div class="sec_p_yallw_strip">
+                            <translat key-val="התחברות" key-path="LogIn.html"></translat>
+                        </div>
+                    </div>
+                    <form class="loginForm" name="loginForm" ng-submit="login(loginForm, credentials)" novalidate>
+                        <div class="contianer not_padding">
+                            <div class="seprator"></div>
+                            <div class="login">
+                                <div class="contact_left_input" style="margin-top: 19px;">
+                                    <div class="row">
+                                        <div class=" input-group margin-bottom-sm" style=" ">
+                                            <div class="row">
+                                                <i class="fa fa-user" aria-hidden="true" style="margin-left:-4px;"></i>
+                                                <div class="input-group-addon  hidden-xs"> </div>
+                                                <input type="email" placeholder='דוא"ל' class="input_look_up username " required ng-minlength="3" ng-model="credentials.userName">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div ng-show="loginForm.$submitted && credentials.$error.userName.$error" class="form-error">
+                                        <div ng-show="credentials.$error.userName.required">
+                                            <translat key-val="שם משתמש הוא חובה" key-path="LogIn.html"></translat>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class="input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                                    <input type="password" placeholder="סיסמה" class="input_look_up password" required ng-minlength="3" ng-model="credentials.password">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="loginForm.$submitted && credentials.$error.password.$error" class="form-error">
+                                        <div ng-show="credentials.$error.password.required">
+                                            <translat key-val="סיסמה היא חובה" key-path="LogIn.html"></translat>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input" ng-show="Renew">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class="input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                                    <input type="password" placeholder="סיסמה חדשה" class="input_look_up password" ng-minlength="3" ng-model="credentials.NewPassword">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="loginForm.$submitted && credentials.$error.NewPassword.$error" class="form-error">
+                                        <div ng-show="credentials.$error.NewPassword.required">
+                                            <translat key-val="סיסמה חדשה היא חובה" key-path="LogIn.html"></translat>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input" ng-show="Renew">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class="input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                                    <input type="password" placeholder="וודע סיסמה חדשה" class="input_look_up password" ng-minlength="3" ng-model="credentials.NewPasswordAgain">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="loginForm.$submitted && credentials.$error.NewPasswordAgain.$error" class="form-error">
+                                        <div ng-show="credentials.$error.NewPasswordAgain.required">
+                                            <translat key-val="וודע סיסמה חדשה הוא חובה" key-path="LogIn.html"></translat>
+                                        </div>
+                                        <div ng-show="credentials.$error.NewPasswordAgain.Matc">
+                                            <translat key-val="אין התאמה בין הסיסמאות" key-path="LogIn.html"></translat>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="sin_in_up green" type="submit">
+                                    <translat key-val="התחבר" key-path="LogIn.html"></translat>
+                                </button>
+                                <div style="position: relative">
+                                    <!--  type="button" value="התחבר באמצעות פייסבוק" -->
+                                    <button ng-click="faceBookLogIn()" class="sin_in_up blue facebookInBtn" style="z-index: 33;" ><span class="facebook"><i class="fa fa-facebook" aria-hidden="true" style="color: white;font-size: x-large;"></i></span> התחבר באמצעות פייסבוק</button>
+                                </div>
+                                <div style="position: relative">
+                                    <input type="button" ng-click="googleLogIn()" value="התחבר באמצעות גוגל" class="sin_in_up red" style="z-index: 33;" />
+                                </div>
+                                <div class="g-signin2" data-width="320" style="position:absolute;top:-9999px;left:-9999px;" data-onsuccess="onSignIn"></div>
+
+                    </form>
+                    <div style="margin-top: 20px;">
+                        <p style="display: inline;">משתמש חדש?</p><a ui-sref="Register" class="passsin"><translat key-val="הרשם כאן" key-path="LogIn.html"></translat></a>
+                        <a ui-sref="ForgotPassword" class="passsin" style="display: block;margin-bottom: 10px;">  <translat key-val="שכחתי סיסמה" key-path="LogIn.html"></translat> </a>
+                    </div>
+                </div>
+
+            </div>
+            <a class="contain" ui-sref="ContactUs">
+                <button class="sin_in_up gray ContactUs" style="height: 40px !important;" >שירות לקוחות</button>
+            </a>
+        </div>
+    </div>
+</div>
+    <!--</div>
+</div>-->

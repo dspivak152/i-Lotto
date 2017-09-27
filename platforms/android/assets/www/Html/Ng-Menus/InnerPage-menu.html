@@ -1,0 +1,22 @@
+﻿<ul>
+    <li class="yallow_cl">
+        <a ng-show="$LogInState" ui-sref="Financial({Type: 'Deposit'})">
+            <translat key-val="Deposit" key-path="{{$state.current.templateUrl}}"></translat>
+        </a>
+    </li>
+    <li class="white_cl">
+        <a ng-show="$LogInState" href="#">
+            <translat key-val="Your Balance:" key-path="{{$state.current.templateUrl}}"></translat>&nbsp;{{userCredentials.current}}
+        </a>
+    </li>
+    <li class="yallow_cl">
+        <a ng-hide="$LogInState" ui-sref="Login">
+            <translat key-val="Log In" key-path="{{$state.current.templateUrl}}"></translat>
+        </a>
+    </li>
+    <li class="white_cl">
+        <a ng-hide="$LogInState" ui-sref="Register">
+            <translat key-val="Register" key-path="{{$state.current.templateUrl}}"></translat>
+        </a>
+    </li>
+</ul>

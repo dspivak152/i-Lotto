@@ -1,0 +1,65 @@
+﻿<div ng-hide="!raffle || raffle.Numbers.length <= 0">
+
+    <div class="result_row" ng-show="raffle && raffle.ExtraNumbers.length > 0">
+        <p>
+            <translat key-val="תוצאת אקסטרה:" key-path="Inline.Show-Form.html"></translat>
+            <!--<span class="blue_result">
+                <span ng-repeat="num in raffle.ExtraNumbers track by $index">
+                    {{num}}
+                </span>
+            </span>-->
+            <span class="blue_result" style="float:left;">
+                <label class="result_number blue_result" ng-repeat="num in raffle.ExtraNumbers track by $index">
+                    <span>
+                        {{num}}
+                    </span>
+                </label>
+            </span>
+        </p>
+    </div>
+    
+    <div class="row_line" ng-show="raffle && raffle.Numbers.length > 0">
+        <p>
+            <translat key-val="סכום הפרס:" key-path="Inline.Show-Form.html"></translat>
+        </p>
+        <div class="col_result">
+            <p>
+                <translat key-val="פרס ראשון" key-path="Inline.Show-Form.html"></translat>
+            </p>
+            <p>
+                {{raffle.RegSum}} מיליון ₪
+            </p>
+        </div>
+        <div class="col_result">
+            <p><translat key-val="בדאבל" key-path="Inline.Show-Form.html"></p>
+            <p>
+                 {{raffle.DoubleSum}} מיליון ₪
+            </p>
+        </div>
+    </div>
+
+    <div class="row_line" ng-show="raffle && raffle.Numbers.length > 0">
+        <p>
+            <translat key-val="תוצאת הגרלה:" key-path="Inline.Show-Form.html"></translat>
+        </p>
+        <div class="col_result">
+            <p>
+                <translat key-val="מספרים" key-path="Inline.Show-Form.html"></translat>
+            </p>
+            <p>
+                <span ng-repeat="num in raffle.Numbers track by $index">
+                    {{num}}
+                </span>
+            </p>
+        </div>
+        <div class="col_result">
+            <p><translat key-val="חזק" key-path="Inline.Show-Form.html"></p>
+            <p>
+                <span ng-repeat="num in raffle.Strong track by $index">
+                    {{num}}
+                </span>
+            </p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,85 @@
+﻿<div>
+    <nevigation menu-id="6"></nevigation>
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    <div class="contianer">
+                        <div class="h_top_button">
+                            <div class="ChooseForm">
+                                <p class="loto">
+                                    <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                                    <translat key-val="בחר את סוג הטופס" key-path="Home.html"></translat>
+                                    <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                                </p>
+                            </div>
+                            <div class="choose-form-rapper">
+                                <img src="style/imgg/3.jpg" ui-sref="Product.form({ProdId: 1022})" />
+                                <img src="style/imgg/2.jpg" ui-sref="Product.form({ProdId: 1020})" />
+                                <img src="style/imgg/1.jpg" ui-sref="Product.form({ProdId: 1018})" />
+                                <img src="style/imgg/6.jpg" ui-sref="Product.form({ProdId: 1023})" />
+                                <img src="style/imgg/5.jpg" ui-sref="Product.form({ProdId: 1021})" />
+                                <img src="style/imgg/4.jpg" ui-sref="Product.form({ProdId: 1019})" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="yallow_slite_bg" style="font-size: inherit !important;">
+                        <translat key-val="הגרלת הלוטו הבאה" key-path="Home.html"></translat>
+                        {{NextRaffle.RaffleNumber}}
+                        <translat key-val="בעוד:" key-path="Home.html"></translat>
+                    </div>
+                    <div class="contianer">
+                        <div style="background: red">
+                            <div class="point_no_bg jj">
+                                <table class="table_count font_table">
+                                    <tr>
+                                        <td>
+                                            <translat key-val="ימים" key-path="Home.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="שעות" key-path="Home.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="דקות" key-path="Home.html"></translat>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <countdown target-date="{{NextRaffle.Raffledate}}"></countdown>
+                            </div>
+                        </div>
+                        <div class="points_m_con">
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div>
+                            <p class="numprize">:הפרסים</p>
+                            <div class="bord">
+                                <div class="points_left">
+                                    <div class="points_nm" style="font-size: 18px;">
+                                        <translat key-val="בדאבל" key-path="Home.html"></translat>
+                                    </div>
+                                    <div class="points_no num">{{NextRaffle.DoubleSum}}</div>
+                                    <div class="points_nm">
+                                        <translat key-val="מיליון" key-path="Home.html"></translat> ₪
+                                    </div>
+                                </div>
+                                <div class="points_right">
+                                    <div class="points_nm" style="font-size: 18px;">
+                                        <translat key-val="פרס ראשון" key-path="Home.html"></translat>
+                                    </div>
+                                    <div class="points_no num">{{NextRaffle.RegSum}}</div>
+                                    <div class="points_nm">
+                                        <translat key-val="מיליון" key-path="Home.html"></translat> ₪
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explain">
+                                השרות מאפשר שליחת טפסים להגרלת הלוטו של מפעל הפיס אך אינו מופעל על ידם.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

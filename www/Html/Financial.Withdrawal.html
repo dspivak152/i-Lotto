@@ -1,0 +1,82 @@
+﻿<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <!-- Statistics -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+
+                    <div class="contianer">
+                        <div class="sec_p_yallw_strip">{{$Page.Name}}</div>
+                    </div>
+                    
+                    <form class="ContactForm" name="Withdrawalform" ng-submit="SaveForm()" novalidate>
+                        <div class="container_credit">
+                            
+                            <div class="seprator"></div>
+                            <div class="bank_message">
+                                <translat key-val="Withdrawal-Instructions" key-path="Financial.Withdrawal.html"></translat>
+                            </div>
+
+                            <div class="seprator"></div>
+                            <div class="contact_left_input field_with_icon">
+                                <div class="input_fild">
+                                    <i class="fa fa-ils" aria-hidden="true"></i>
+                                    <input type="tel" class="input_look_up" placeholder='סכום' required min="1" ng-model="amount" name="amount">
+
+                                    <div ng-show="Withdrawalform.$submitted && Withdrawalform.amount.$invalid" class="form-error">
+                                        <div ng-show="Withdrawalform.amount.$error.required">
+                                            <translat key-val="חובה להכניס סכום" key-path="Financial.Withdrawal.html"></translat>
+                                        </div>
+                                        <div ng-show="Withdrawalform.amount.$error.custom">
+                                            <translat key-val="הסכום חייב להיות גדול מ 1" key-path="Financial.Withdrawal.html"></translat>
+                                        </div>
+                                        <div ng-show="Withdrawalform.amount.$error.over">
+                                            <translat key-val="הסכום גדול מהסכום בחשבון" key-path="Financial.Withdrawal.html"></translat>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact_left_input field_with_icon">
+                                <div class="input_fild">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+
+                                    <input type="tel" class="input_look_up" ng-minlength="9" placeholder='מספר נייד' required name="mobile" ng-model="mobile">
+                                    
+                                    <div ng-show="Withdrawalform.$submitted && Withdrawalform.mobile.$invalid" class="form-error">
+                                        <div ng-show="Withdrawalform.mobile.$error.required">
+                                            <translat key-val="מספר טלפון הוא חובה" key-path="Financial.Withdrawal.html"></translat>
+                                        </div>
+                                        <div ng-show="Withdrawalform.mobile.$error.custom">
+                                            <translat key-val="לא מספר טלפון תקין" key-path="Financial.Withdrawal.html"></translat>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="contact_left_input field_with_icon">
+                                <div class="input_fild">
+                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                    <input type="password" class="input_look_up" placeholder='סיסמה' required name="password" ng-model="password">
+
+                                    <div ng-show="Withdrawalform.$submitted && Withdrawalform.password.$invalid" class="form-error">
+                                        <div>
+                                            <translat key-val="חובה להזין סיסמה" key-path="Financial.Withdrawal.html"></translat>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="send_btn bt_arrow margin_bt_20" style="width: 100% !important;color:#414141;">
+                                <translat key-val="שמור" key-path="Financial.Withdrawal.html"></translat>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

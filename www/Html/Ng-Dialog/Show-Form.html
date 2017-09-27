@@ -1,0 +1,89 @@
+﻿<div class="ngdialog-content select-popup">
+    <div class="ngdialog-message">
+        
+        <fieldset>
+            <div class="yallow_slite_bg" ng-show="ShowForm.Check">
+                <translat key-val="תוצאות הגרלה" key-path="Show-Form.html"></translat>
+            </div>
+            <div class="yallow_br form-tables-br" ng-show="ShowForm.Check">
+
+                <div class="form-table">
+                    <div>
+                        <div class="numbers">
+                            <div class="num-head">:<translat key-val="מספרים" key-path="Show-Form.html"></translat></div>
+                            <div class="num" ng-repeat="num in $ShowForm.raffle.Numbers track by $index">
+                                {{num}}
+                            </div>
+                        </div>
+                        <div class="strongs">
+                            <div class="num-head">:<translat key-val="חזק" key-path="Show-Form.html"></translat></div>
+                            <div class="num" ng-repeat="num in $ShowForm.raffle.Strong track by $index">
+                                {{num}}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="numbers" ng-show="$ShowForm.Extra">
+                            <div class="num-head">:<translat key-val="מספרי אקסטרה" key-path="Show-Form.html"></translat></div>
+                            <div class="num" ng-repeat="num in $ShowForm.raffle.ExtraNumbers track by $index">
+                                {{num}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="yallow_slite_bg">
+                <translat key-val="נתוני טופס" key-path="Show-Form.html"></translat>
+            </div>
+            <div class="yallow_br form-tables-br">
+                <div class="form-table" ng-show="$ShowForm.Extra && $ShowForm.ExtraNumbersArray > 0">
+                    <div>
+                        <div class="numbers">
+                            <div class="num-head">:<translat key-val="מספרי אקסטרה" key-path="Show-Form.html"></translat></div>
+                            <div class="num" ng-repeat="num in $ShowForm.ExtraNumbersArray track by $index" ng-class="{'win' : num.Win, 'extra-win' : num.ExtraWin}">
+                                <span>{{num.number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div ng-repeat="table in $ShowForm.Tables track by $index" class="form-table">
+                    <div>
+                        <div class="numbers">
+                            <div class="num-head">:<translat key-val="מספרים" key-path="Show-Form.html"></translat></div>
+                            <div class="num" ng-repeat="num in table.NumbersObj track by $index" ng-class="{'win' : num.Win, 'extra-win' : num.ExtraWin}">
+                                <span>{{num.number}}</span>
+                            </div>
+                        </div>
+                        <div class="strongs">
+                            <div class="num-head">:<translat key-val="חזק" key-path="Show-Form.html"></translat></div>
+                            <div class="num" ng-repeat="num in table.StrongObj track by $index" ng-class="{true: 'win'}[num.Win == true]">
+                                <span>{{num.number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="yallow_br form-tables-br" ng-show="$ShowForm.Reward > 0">
+
+                <div class="form-table">
+                    <div>
+                        <div class="numbers reward">
+                            <div class="num-head">
+                                :<translat key-val="זכיה" key-path="Show-Form.html"></translat>
+                            </div>
+                            <div class="num">
+                                <span>{{$ShowForm.Reward}} <translat key-val="ש''ח" key-path="Show-Form.html"></translat></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+</div>

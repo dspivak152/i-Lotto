@@ -1,0 +1,132 @@
+﻿<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    <div class="contianer">
+                        <div class="sec_p_yallw_strip width65">
+                            <translat key-val="עדכון פרטים" key-path="Update-details.html"></translat>
+                        </div>
+                    </div>
+                    <form name="UpdateForm" class="RegisterForm" ng-submit="Update()" ng-model="userDetails" novalidate autocomplete="off">
+                        <div class="contianer not_padding">
+
+                            <div class="seprator"></div>
+
+                            <div class="login">
+                                <div class="contact_left_input">
+                                    <div class="row">
+                                        <div class="input-group margin-bottom-sm first_input">
+                                            <div class="row">
+                                                <div class="input_fild">
+                                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                                    <input type="text" name="FullName" class="input_look_up" placeholder="שם מלא" required ng-minlength="3" ng-model="userDetails.FullName" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div ng-show="UpdateForm.$invalid && UpdateForm.FullName.$invalid" class="form-error">
+                                                <div ng-show="UpdateForm.FullName.$error.required">
+                                                    <translat key-val="Required Field" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.FullName.$error.minlength">
+                                                    <translat key-val="Minimum Field Length 3 Characters" key-path="Update-details.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-id-card" aria-hidden="true"></i>
+
+                                                    <input type="tel" name="IdentityNumber" class="input_look_up" placeholder="תעודת זהות" required ng-minlength="8" ng-model="userDetails.IdentityNumber" autocomplete="off">
+
+                                                </div>
+                                            </div>
+                                            <div ng-show="UpdateForm.$invalid && UpdateForm.IdentityNumber.$invalid" class="form-error">
+                                                <div ng-show="UpdateForm.IdentityNumber.$error.required">
+                                                    <translat key-val="Required Field" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.IdentityNumber.$error.custom">
+                                                    <translat key-val="Not Valid Identity Number" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.IdentityNumber.$error.minlength">
+                                                    <translat key-val="Minimum Field Length 8 Digits" key-path="Update-details.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <input type="email" readonly disabled class="input_look_up" placeholder='דוא"ל' required ng-minlength="6" ng-model="userDetails.UserName" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class="input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <input type="tel" name="Phone" class="input_look_up" placeholder="נייד" required ng-minlength="9" ng-model="userDetails.Phone" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div ng-show="UpdateForm.$invalid && UpdateForm.Phone.$invalid" class="form-error">
+                                                <div ng-show="UpdateForm.Phone.$error.required">
+                                                    <translat key-val="Required Field" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.Phone.$error.custom">
+                                                    <translat key-val="Not Valid Phone" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.Phone.$error.minlength">
+                                                    <translat key-val="Minimum Field Length 9 Digits" key-path="Update-details.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                                    <input type="password" name="Password" ng-required="{{updateStep}}" class="input_look_up" placeholder="סיסמה" ng-minlength="6" ng-maxlength="22" ng-model="userDetails.Password" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div ng-show="UpdateForm.$invalid && UpdateForm.Password.$invalid" class="form-error">
+                                                <div ng-show="UpdateForm.Password.$error.minlength">
+                                                    <translat key-val="Min Length 6 Characters" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.Password.$error.maxlength">
+                                                    <translat key-val="Max Length 22 Characters" key-path="Update-details.html"></translat>
+                                                </div>
+                                                <div ng-show="UpdateForm.Password.$error.required">
+                                                    <translat key-val="Required Field" key-path="Update-details.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="sin_in_up green" type="submit">
+                                    <translat key-val="עדכן פרטים" key-path="LogIn.html"></translat>
+                                </button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

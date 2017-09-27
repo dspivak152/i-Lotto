@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="il.co.ilotto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="PushNotification">
+        <param name="android-package" value="com.adobe.phonegap.push.PushPlugin" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="GooglePlus">
+        <param name="android-package" value="nl.xservices.plugins.GooglePlus" />
+        <param name="onload" value="true" />
+    </feature>
+    <access origin="https://accounts.google.com/*" />
+    <name>ilotto</name>
+    <description>
+        i-Lotto
+    </description>
+    <author email="dspivak152@gmail.com" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <icon density="ldpi" src="platforms/android/res/ldpi.png" />
+    <icon density="mdpi" src="platforms/android/res/mdpi.png" />
+    <icon density="hdpi" src="platforms/android/res/hdpi.png" />
+    <icon density="xhdpi" src="platforms/android/res/xhdpi.png" />
+    <icon density="xxhdpi" src="platforms/android/res/xxhdpi.png" />
+    <icon density="xxxhdpi" src="platforms/android/res/xxxhdpi.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#40427b" />
+    <preference name="StatusBarStyle" value="blacktranslucent" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="portrait" />
+    <preference name="target-device" value="universal" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-installLocation" value="auto" />
+</widget>

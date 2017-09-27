@@ -1,0 +1,85 @@
+﻿<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    <div class="contianer">
+                        <div class="sec_p_yallw_strip width65">{{title}}</div>
+                    </div>
+
+                    <form name="ContactForm" class="ContactForm" ng-submit="Register(ContactForm, Contact)" novalidate>
+                        <div class="contianer not_padding">
+                            <div class="seprator"></div>
+                            <div class="login">
+                                <p style="text-align: right;direction: rtl;width: 92%;margin: 15px auto 0 auto;">
+                                    <i class="fa fa-exclamation" aria-hidden="true"></i>
+                                    הסבר:
+                                </p>
+                                <div class="bank_message contact_message">
+                                    <div otc-dynamic html="{{$Page.Text}}"></div>
+                                </div>
+
+                                <div class="seprator"></div>
+                                <div class="contact_left_input">
+
+                                    <div class="input_fild" style="margin-top: 17px;">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm" style=" ">
+                                                <div class="row">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input type="text" class="input_look_up" placeholder="שם פרטי  ומשפחה" required ng-minlength="3" ng-model="Contact.firstName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div ng-show="ContactForm.$submitted && Contact.$error.firstName" class="form-error">
+                                            <div>יש להכניס שם</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm" style=" ">
+                                                <div class="row">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <input type="email" class="input_look_up" placeholder=' דוא"ל' required ng-minlength="6" ng-model="Contact.userName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div ng-show="ContactForm.$submitted && Contact.$error.userName" class="form-error">
+                                            <div>יש להכניס דוא"ל"</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm" style=" ">
+                                                <div class="row">
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <input type="tel" class="input_look_up" placeholder="טלפון" ng-minlength="6" ng-model="Contact.cell">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div ng-show="ContactForm.$submitted && Contact.$error.cell" class="form-error">
+                                            <div>מספר טלפון לא תקין</div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <textarea placeholder="כתוב לנו" class="form-control write_us" ng-model="Contact.Message"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="sin_in_up green">שלח</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

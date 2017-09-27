@@ -1,0 +1,117 @@
+﻿<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <!-- VIEW -->
+            <div>
+                <h3>{{title}}</h3>
+            </div>
+
+            <table class="table" ng-hide="depositModel.IsWithdrawal">
+                <thead>
+                    <tr>
+                        <th>ImageUrl</th>
+                        <th>BankName</th>
+                        <th>AccountNumber</th>
+                        <th>BranchNumber</th>
+                        <th>Recipient</th>
+                        <th>Choose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="detail in DepositDetails track by $index">
+                        <td>
+                            <img src="{{detail.ImageUrl}}" alt="{{detail.BankName}}" title="{{detail.BankName}}" />
+                        </td>
+                        <td>{{detail.BankName}}</td>
+                        <td>AccountNumber</td>
+                        <td>BranchNumber</td>
+                        <td>Recipient</td>
+                        <td>
+                            <label class="btn btn-primary" ng-change="SelectPayOption(selectedBank)" ng-model="selectedBank" btn-radio="{{detail}}">Select</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form class="form-horizontal" name="financialForm" ng-submit="SaveForm(financialForm, depositModel)" novalidate ng-show="depositModel.IsWithdrawal || (!depositModel.IsWithdrawal && selectedBank != '')">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">
+                            <translat key-val="UserName" key-path="financial-{{$scopeType}}"></translat>
+                        </label>
+                        <div class="col-md-5">
+                            <input type="text" placeholder="UserName" class="form-control input-md" readonly ng-model="depositModel.UserName">
+                        </div>
+                    </div>
+                    <div ng-show="depositModel.IsWithdrawal" class="form-group" ng-class="{true: 'error'}[financialForm.$submitted && depositModel.ContactPhone.$invalid]">
+                        <label class="col-md-4 control-label" for="textinput">
+                            <translat key-val="ContactPhone" key-path="financial-{{$scopeType}}"></translat>
+                        </label>
+                        <div class="col-md-5">
+                            <input type="tel" placeholder="ContactPhone" class="form-control input-md" required ng-minlength="8" ng-model="depositModel.ContactPhone">
+                            <div ng-show="financialForm.$submitted && depositModel.$error.ContactPhone.$error">
+                                <div ng-show="depositModel.$error.ContactPhone.required">ContactPhone Is Required</div>
+                                <div ng-show="depositModel.$error.ContactPhone.isPhoneNumber">ContactPhone Is Not A Valid Phone Number</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="depositModel.IsWithdrawal" class="form-group" ng-class="{true: 'error'}[financialForm.$submitted && depositModel.BankName.$invalid]">
+                        <label class="col-md-4 control-label" for="textinput">
+                            <translat key-val="BankName" key-path="financial-{{$scopeType}}"></translat>
+                        </label>
+                        <div class="col-md-5">
+                            <input type="text" placeholder="BankName" class="form-control input-md" required ng-minlength="3" ng-model="depositModel.BankName">
+                            <div ng-show="financialForm.$submitted && depositModel.$error.BankName.$error">
+                                <div ng-show="depositModel.$error.BankName.required">BankName Is Required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-hide="depositModel.IsWithdrawal" class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">
+                            <translat key-val="BankName" key-path="financial-{{$scopeType}}"></translat>
+                        </label>
+                        <div class="col-md-5">
+                            <input type="text" readonly placeholder="BankName" class="form-control input-md" ng-model="depositModel.BankName">
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'error'}[financialForm.$submitted && depositModel.Amount.$invalid]">
+                        <label class="col-md-4 control-label" for="textinput">
+                            <translat key-val="Amount" key-path="financial-{{$scopeType}}"></translat>
+                        </label>
+                        <div class="col-md-5">
+                            <input type="number" placeholder="Amount" class="form-control input-md" required min="1" ng-model="depositModel.Amount">
+                            <div ng-show="financialForm.$submitted && depositModel.$error.Amount.$error">
+                                <div ng-show="depositModel.$error.Amount.required">Amount Is Required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'error'}[financialForm.$submitted && depositModel.RefrenceNumber.$invalid]">
+                        <label class="col-md-4 control-label" for="textinput">
+                            <translat key-val="RefrenceNumber" key-path="financial-{{$scopeType}}"></translat>
+                        </label>
+                        <div class="col-md-5">
+                            <input type="text" placeholder="RefrenceNumber" class="form-control input-md" required ng-minlength="6" ng-model="depositModel.RefrenceNumber">
+                            <div ng-show="financialForm.$submitted && depositModel.$error.RefrenceNumber.$error">
+                                <div ng-show="depositModel.$error.RefrenceNumber.required">RefrenceNumber Is Required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="submitButton"></label>
+                        <div class="col-md-5">
+                            <button type="submit">
+                                <translat key-val="Save" key-path="financial-{{$scopeType}}"></translat>
+                            </button> <!--ng-disabled="financialForm.$invalid"-->
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <!-- VIEW -->
+
+        </div>
+    </div>
+</div>

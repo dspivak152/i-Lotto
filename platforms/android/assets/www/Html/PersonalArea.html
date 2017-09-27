@@ -1,0 +1,257 @@
+<link href="style/css/style1.css" rel="stylesheet" type="text/css">
+<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+
+                    <div class="contianer">
+                        <div class="sec_p_yallw_strip">
+                            <translat key-val="אזור אישי" key-path="PersonalArea.html"></translat>
+                        </div>
+                    </div>
+
+                    <div class="contianer" style="padding: 0 2%;">
+                    	<div class="h_top_button new-pa-box">
+	                        <ul>
+                                <li class="white_cl" ng-click="$Type = 'Withdrawals'" ng-class="{true: 'active'}[$Type == 'Withdrawals']" style="margin-left: 0px;">
+                                    <a href=" #">
+                                        <p><translat key-val="משיכות" key-path="Headder.html"></translat></p>
+                                    </a>
+                                </li>
+                                <li class="white_cl" ng-click="$Type = 'Deposits'" ng-class="{true: 'active'}[$Type == 'Deposits']">
+                                    <a href="#">
+                                        <p><translat key-val="הפקדות" key-path="Headder.html"></translat></p>
+                                    </a>
+                                </li>
+                                <li class="white_cl" ng-click="$Type = 'NamedForms'" ng-class="{true: 'active'}[$Type == 'NamedForms']">
+                                    <a href="#">
+                                        <p><translat key-val="טפסים שמורים" key-path="Headder.html"></translat></p>
+                                    </a>
+                                </li>
+                                <li class="white_cl" ng-click="$Type = 'FutureForms'" ng-class="{true: 'active'}[$Type == 'FutureForms']">
+                                    <a href="#">
+                                        <p><translat key-val="הגרלות עתידיות" key-path="Headder.html"></translat></p>
+                                    </a>
+                                </li>
+                                <li class="white_cl" ng-click="$Type = 'Wins'" ng-class="{true: 'active'}[$Type == 'Wins']">
+                                    <a href="#">
+                                        <p><translat key-val="זכיות" key-path="Headder.html"></translat></p>
+                                    </a>
+                                </li>
+                                <li class="white_cl" ng-click="$Type = 'OldForms'" ng-class="{true: 'active'}[$Type == 'OldForms']" style="margin-right: 0px;">
+                                    <a href="#">
+                                        <p><translat key-val="טפסים שנשלחו" key-path="Headder.html"></translat></p>
+                                    </a>
+                                </li>
+	                        </ul>
+	                    </div>
+                        <div class="table_data">
+
+                            <div ng-show="$Type == 'OldForms' || $Type == 'FutureForms'" class="personal_table" >
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="dir_rtl">
+                                    <tr>
+                                        <td>
+                                            <translat key-val="תאריך שליחה" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="סוג טופס" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="הגרלה" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="סטטוס" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-repeat-start="form in FutureForms" ng-class="{'td_white': $index % 2 == 0}" ng-click="openModal(form, FutureForms)">
+                                        <td style="direction:ltr;" ng-class="{'td_white': $index % 2 == 0}">
+                                            {{form.FillDateString}}
+                                        </td>
+                                        <td>
+                                            {{form.BaseFormTypeName}}
+                                            {{form.RaffleType}}
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{form.raffle.RaffleNumber}}
+                                            </div>
+                                            <div>
+                                                {{form.raffle.RaffledateFormat}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{form.StateName}}
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-show="form.showModal" ng-repeat-end class="td_white td_white_form" ng-click="openModal(form, FutureForms)">
+                                        <td colspan="5" style="padding: 15px 8px 0 15px;" ng-include="'Html/Ng-Dialog/Inline.Show-Form.html'"></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                            <div ng-show="$Type == 'Wins'" class="personal_table">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="dir_rtl">
+                                    <tr>
+                                        <td>
+                                            <translat key-val="סוג טופס" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="הגרלה" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="סכום זכיה" key-path="PersonalArea.html"></translat><br />
+                                        </td>
+                                        <td>
+                                            <translat key-val="תאריך זיכוי" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-repeat-start="form in WinForms" ng-class="{'td_white': $index % 2 == 0}" ng-click="openModal(form, WinForms)" >
+                                        <td>
+                                            {{form.BaseFormTypeName}}
+                                            {{form.RaffleType}}
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{form.raffle.RaffleNumber}}
+                                            </div>
+                                            <div>
+                                                {{form.raffle.RaffledateFormat}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{form.Reward}}
+                                        </td>
+                                        <td>
+                                            {{form.SealDateString}}
+                                        </td>
+                                    </tr>
+                                    <tr ng-show="form.showModal" ng-repeat-end class="td_white" ng-click="openModal(form, WinForms)">
+                                        <td class="td_white_form" colspan="5" style="padding: 15px 8px 0 15px;" ng-include="'Html/Ng-Dialog/Inline.Show-Form.html'"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div ng-show="$Type == 'NamedForms'" class="personal_table">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="dir_rtl">
+                                    <tr>
+                                        <td>
+                                            <translat key-val="שם הטופס" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="סוג הטופס" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="מחיר" key-path="PersonalArea.html"></translat><br />
+                                            <translat key-val="(מפעל הפיס)" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr ng-repeat-start="form in NamedForms" ng-class="{'td_white': $index % 2 == 0}" ng-click="openModal(form, NamedForms)" >
+                                        <td>
+                                            {{form.Name}}
+                                        </td>
+                                        <td>
+                                            {{form.BaseFormTypeName}}
+                                            {{form.RaffleType}}
+                                        </td>
+                                        <td>
+                                            <div>{{form.FormCost}}</div>
+                                            <div>{{form.FormLottery}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr ng-show="form.showModal" ng-repeat-end class="td_white" ng-click="openModal(form, NamedForms)">
+                                        <td colspan="5" style="padding: 15px 8px 0 15px;" ng-include="'Html/Ng-Dialog/Inline.Show-Form.html'"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div ng-show="$Type == 'Deposits' || $Type == 'Withdrawals'" class="personal_table">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="dir_rtl">
+                                    <tr>
+                                        <td>
+                                            <translat key-val="תאריך בקשה" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="סכום" key-path="PersonalArea.html"></translat>
+                                        </td>
+
+                                        <td ng-show="$Type == 'Withdrawals'">
+                                            <translat key-val="מספר אסמכתא" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td ng-show="$Type == 'Deposits'">
+                                            <translat key-val="הופקד באמצעות" key-path="PersonalArea.html"></translat>
+                                        </td>
+
+                                        <td>
+                                            <translat key-val="סטטוס" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                        <td>
+                                            <translat key-val="תאריך זיכוי" key-path="PersonalArea.html"></translat>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-repeat="deposit in $Deposits" ng-class="{'td_white': $index % 2 == 0}">
+                                        <td>
+                                            {{deposit.CreatedString}}
+                                        </td>
+                                        <td>
+                                            {{deposit.Amount}}
+                                        </td>
+
+                                        <td ng-show="$Type == 'Withdrawals'">
+                                            {{deposit.Reference}}
+                                        </td>
+                                        <td ng-show="$Type == 'Deposits'">
+                                            {{deposit.DepositDetail.BankName}}
+                                        </td>
+
+                                        <td>
+                                            {{deposit.IsConfirmed}}
+                                        </td>
+                                        <td>
+                                            {{deposit.ConfirmedString}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <ul class="pagination pagination-sm" ng-show="$Pager.MaxPages > 1">
+                                <li ng-show="$Pager.MaxPages > 1 && $Pager.PageNumber > 1">
+                                    <a href="#" ng-click="$Pager.PageNumber = $Pager.PageNumber - 1">
+                                        <translat key-val="Prev" key-path="PersonalArea.html"></translat>
+                                    </a>
+                                </li>
+
+                                <li ng-repeat="page in $Pager.pagerList | pagingFilter:$Pager"
+                                    ng-class="{active: $Pager.PageNumber === page}">
+                                    <a href="#" ng-click="$Pager.PageNumber = page">{{page}}</a>
+                                </li>
+
+                                <li ng-show="$Pager.MaxPages > 1 && $Pager.PageNumber < $Pager.MaxPages">
+                                    <a href="#" ng-click="$Pager.PageNumber = $Pager.PageNumber + 1">
+                                        <translat key-val="Next" key-path="PersonalArea.html"></translat>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div style="display:none;">
+        <img ng-repeat="form in WinForms | FilterFormReception" style="width:55px;height:55px;float: left;display:none;" src="{{form.FormReception.Link}}" />
+        <img ng-repeat="form in FutureForms | FilterFormReception" style="width:55px;height:55px;float: left;display:none;" src="{{form.FormReception.Link}}" />
+    </div>-->
+</div>

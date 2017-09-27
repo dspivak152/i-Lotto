@@ -1,0 +1,28 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "il.co.ilotto"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "85075801930",
+            "PACKAGE_NAME": "il.co.ilotto"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "il.co.ilotto"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "il.co.ilotto"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "il.co.ilotto"
+        }
+    },
+    "dependent_plugins": {}
+}

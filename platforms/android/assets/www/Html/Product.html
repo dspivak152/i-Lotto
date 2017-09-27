@@ -1,0 +1,307 @@
+﻿<link href="style/css/style1.css" rel="stylesheet" type="text/css">
+<div>
+    <nevigation menu-id="6"></nevigation>
+    <div class="container-fluid main-content">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+
+                    <!-- TITLE VIEW -->
+                    <div class="center-img">
+                        <p class="text_loto">{{$Page.Name}}</p>
+                    </div>
+                    <form name="LotoForm" ng-submit="SaveAndSend(LotoForm, FormsSettingsModel)" novalidate>
+                        <div class="contant answer"  ng-show="table.Active" ng-repeat="table in FormsSettingsModel.Tables track by $index" ng-class="{'fade-answer': !table.Show}">
+                            
+                            <!-- top buttons -->
+                            <table class="buttons-table">
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm btn-block btn_loto" ng-click="AutoFill(table)">
+                                            <p><translat key-val="מלא אוטומטי" key-path="Product.html"></translat></p>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-success btn-block btn_loto white">
+                                            <p>
+                                                <translat key-val="טבלה" key-path="Product.html"></translat>&nbsp;
+                                                {{table.tableNumber}}/{{CalcFormData.numberForms}}
+                                            </p>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" ng-click="previousForm($event, table)"
+                                                class="btn btn-sm btn-danger btn-block btn_loto" ng-disabled="CalcFormData.numberForms == 1"
+                                                ng-class="{true: 'disabled'}[CalcFormData.numberForms == 1]"
+                                                ng-hide="CalcFormData.numberForms == 1 || table.tableNumber == 1">
+                                            <p><translat key-val="הקודם" key-path="Product.html"></translat></p>
+                                        </button>
+                                        <button ui-sref="Home" class="btn btn-sm btn-danger btn-block btn_loto"
+                                                ng-show="CalcFormData.numberForms == 1 || table.tableNumber == 1">
+                                            <p><translat key-val="חזור" key-path="PersonalArea.html"></translat></p>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- form numbers -->
+                            <div class="main_table">
+                                <font id="fontstyle">
+                                    <b>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-radio1" class="css-checkbox" ng-model="table.CheckboxArray[1]" ng-click="TraceTable(table,table.CheckboxArray[1],1)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[1]" value="1" />1
+                                            <label for="T-{{table.tableNumber}}-radio1" class="css-label"> </label>
+                                        </div>
+                                        <div class="yallow_slite_bg number2 number2_btn" style="width: 46% !important;color: #414141;background: transparent !important;">
+                                            <translat key-val="מספרים" key-path="Product.html"></translat>
+                                            <img src="style/images/arrow_left_color.png" style="width: 20px;">
+                                        </div>
+                                        <div class="yallow_slite_bg number2 number2_btn" style="width: 25% !important;color: #414141;background: transparent !important;">
+                                            <img src="style/images/arrow_right_color.png" style="width: 20px;">
+                                            <translat key-val="חזק" key-path="Product.html"></translat>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-2" class="css-checkbox" ng-model="table.CheckboxArray[2]" ng-click="TraceTable(table,table.CheckboxArray[2],2)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[2]" value="2" />2
+                                            <label for="T-{{table.tableNumber}}-2" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-3" class="css-checkbox" ng-model="table.CheckboxArray[3]" ng-click="TraceTable(table,table.CheckboxArray[3],3)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[3]" value="3" />3
+                                            <label for="T-{{table.tableNumber}}-3" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-4" class="css-checkbox" ng-model="table.CheckboxArray[4]" ng-click="TraceTable(table,table.CheckboxArray[4],4)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[4]" value="4" />4
+                                            <label for="T-{{table.tableNumber}}-4" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-5" class="css-checkbox" ng-model="table.CheckboxArray[5]" ng-click="TraceTable(table,table.CheckboxArray[5],5)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[5]" value="5" />5
+                                            <label for="T-{{table.tableNumber}}-5" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-6" class="css-checkbox" ng-model="table.CheckboxArray[6]" ng-click="TraceTable(table,table.CheckboxArray[6],6)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[6]" value="6" />6
+                                            <label for="T-{{table.tableNumber}}-6" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-7" class="css-checkbox" ng-model="table.CheckboxArray[7]" ng-click="TraceTable(table,table.CheckboxArray[7],7)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[7]" value="7" />7
+                                            <label for="T-{{table.tableNumber}}-7" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-8" class="css-checkbox" ng-model="table.CheckboxArray[8]" ng-click="TraceTable(table,table.CheckboxArray[8],8)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[8]" value="8" />8
+                                            <label for="T-{{table.tableNumber}}-8" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-9" class="css-checkbox" ng-model="table.CheckboxArray[9]" ng-click="TraceTable(table,table.CheckboxArray[9],9)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[9]" value="9" />9
+                                            <label for="T-{{table.tableNumber}}-9" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-10" class="css-checkbox" ng-model="table.CheckboxArray[10]" ng-click="TraceTable(table,table.CheckboxArray[10],10)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[10]" value="10" />10
+                                            <label for="T-{{table.tableNumber}}-10" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-11" class="css-checkbox" ng-model="table.CheckboxArray[11]" ng-click="TraceTable(table,table.CheckboxArray[11],11)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[11]" value="11" />11
+                                            <label for="T-{{table.tableNumber}}-11" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-12" class="css-checkbox" ng-model="table.CheckboxArray[12]" ng-click="TraceTable(table,table.CheckboxArray[12],12)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[12]" value="12" />12
+                                            <label for="T-{{table.tableNumber}}-12" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-13" class="css-checkbox" ng-model="table.CheckboxArray[13]" ng-click="TraceTable(table,table.CheckboxArray[13],13)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[13]" value="13" />13
+                                            <label for="T-{{table.tableNumber}}-13" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-14" class="css-checkbox" ng-model="table.CheckboxArray[14]" ng-click="TraceTable(table,table.CheckboxArray[14],14)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[14]" value="14" />14
+                                            <label for="T-{{table.tableNumber}}-14" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-15" class="css-checkbox" ng-model="table.CheckboxArray[15]" ng-click="TraceTable(table,table.CheckboxArray[15],15)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[15]" value="15" />15
+                                            <label for="T-{{table.tableNumber}}-15" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-16" class="css-checkbox" ng-model="table.CheckboxArray[16]" ng-click="TraceTable(table,table.CheckboxArray[16],16)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[16]" value="16" />16
+                                            <label for="T-{{table.tableNumber}}-16" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-17" class="css-checkbox" ng-model="table.CheckboxArray[17]" ng-click="TraceTable(table,table.CheckboxArray[17],17)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[17]" value="17" />17
+                                            <label for="T-{{table.tableNumber}}-17" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-18" class="css-checkbox" ng-model="table.CheckboxArray[18]" ng-click="TraceTable(table,table.CheckboxArray[18],18)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[18]" value="18" />18
+                                            <label for="T-{{table.tableNumber}}-18" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-19" class="css-checkbox" ng-model="table.CheckboxArray[19]" ng-click="TraceTable(table,table.CheckboxArray[19],19)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[19]" value="19" />19
+                                            <label for="T-{{table.tableNumber}}-19" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-20" class="css-checkbox" ng-model="table.CheckboxArray[20]" ng-click="TraceTable(table,table.CheckboxArray[20],20)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[20]" value="20" />20
+                                            <label for="T-{{table.tableNumber}}-20" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-21" class="css-checkbox" ng-model="table.CheckboxArray[21]" ng-click="TraceTable(table,table.CheckboxArray[21],21)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[21]" value="21" />21
+                                            <label for="T-{{table.tableNumber}}-21" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-22" class="css-checkbox" ng-model="table.CheckboxArray[22]" ng-click="TraceTable(table,table.CheckboxArray[22],22)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[22]" value="22" />22
+                                            <label for="T-{{table.tableNumber}}-22" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-23" class="css-checkbox" ng-model="table.CheckboxArray[23]" ng-click="TraceTable(table,table.CheckboxArray[23],23)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[23]" value="23" />23
+                                            <label for="T-{{table.tableNumber}}-23" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-24" class="css-checkbox" ng-model="table.CheckboxArray[24]" ng-click="TraceTable(table,table.CheckboxArray[24],24)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[24]" value="24" />24
+                                            <label for="T-{{table.tableNumber}}-24" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-25" class="css-checkbox" ng-model="table.CheckboxArray[25]" ng-click="TraceTable(table,table.CheckboxArray[25],25)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[25]" value="25" />25
+                                            <label for="T-{{table.tableNumber}}-25" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-26" class="css-checkbox" ng-model="table.CheckboxArray[26]" ng-click="TraceTable(table,table.CheckboxArray[26],26)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[26]" value="26" />26
+                                            <label for="T-{{table.tableNumber}}-26" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-27" class="css-checkbox" ng-model="table.CheckboxArray[27]" ng-click="TraceTable(table,table.CheckboxArray[27],27)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[27]" value="27" />27
+                                            <label for="T-{{table.tableNumber}}-27" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-28" class="css-checkbox" ng-model="table.CheckboxArray[28]" ng-click="TraceTable(table,table.CheckboxArray[28],28)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[28]" value="28" />28
+                                            <label for="T-{{table.tableNumber}}-28" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-29" class="css-checkbox" ng-model="table.CheckboxArray[29]" ng-click="TraceTable(table,table.CheckboxArray[29],29)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[29]" value="29" />29
+                                            <label for="T-{{table.tableNumber}}-29" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-30" class="css-checkbox" ng-model="table.CheckboxArray[30]" ng-click="TraceTable(table,table.CheckboxArray[30],30)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[30]" value="30" />30
+                                            <label for="T-{{table.tableNumber}}-30" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-31" class="css-checkbox" ng-model="table.CheckboxArray[31]" ng-click="TraceTable(table,table.CheckboxArray[31],31)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[31]" value="31" />31
+                                            <label for="T-{{table.tableNumber}}-31" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-32" class="css-checkbox" ng-model="table.CheckboxArray[32]" ng-click="TraceTable(table,table.CheckboxArray[32],32)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[32]" value="32" />32
+                                            <label for="T-{{table.tableNumber}}-32" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-33" class="css-checkbox" ng-model="table.CheckboxArray[33]" ng-click="TraceTable(table,table.CheckboxArray[33],33)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[33]" value="33" />33
+                                            <label for="T-{{table.tableNumber}}-33" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-34" class="css-checkbox" ng-model="table.CheckboxArray[34]" ng-click="TraceTable(table,table.CheckboxArray[34],34)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[34]" value="34" />34
+                                            <label for="T-{{table.tableNumber}}-34" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-35" class="css-checkbox" ng-model="table.CheckboxArray[35]" ng-click="TraceTable(table,table.CheckboxArray[35],35)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[35]" value="35" />35
+                                            <label for="T-{{table.tableNumber}}-35" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-36" class="css-checkbox" ng-model="table.CheckboxArray[36]" ng-click="TraceTable(table,table.CheckboxArray[36],36)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[36]" value="36" />36
+                                            <label for="T-{{table.tableNumber}}-36" class="css-label"> </label>
+                                        </div>
+                                        <div class="number2">
+                                            <input type="checkbox" id="T-{{table.tableNumber}}-37" class="css-checkbox" ng-model="table.CheckboxArray[37]" ng-click="TraceTable(table,table.CheckboxArray[37],37)" ng-disabled="(!table.Active || table.ValArray.length >= FormsSettingsModel.ChoiceNumber) && !table.CheckboxArray[37]" value="37" />37
+                                            <label for="T-{{table.tableNumber}}-37" class="css-label"> </label>
+                                        </div>
+                                    </b>
+                                </font>
+                            </div>
+
+                            <!-- form strong numbers -->
+                            <div class="right_table">
+                                <font id="fontstyle">
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio1-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[1]" ng-click="TraceStrong(table,table.StrongArray[1],1)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[1]"
+                                               value="1" />1
+                                        <label for="strong-radio1-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio2-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[2]" ng-click="TraceStrong(table,table.StrongArray[2],2)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[2]"
+                                               value="2" />2
+                                        <label for="strong-radio2-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio3-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[3]" ng-click="TraceStrong(table,table.StrongArray[3],3)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[3]"
+                                               value="3" />3
+                                        <label for="strong-radio3-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio4-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[4]" ng-click="TraceStrong(table,table.StrongArray[4],4)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[4]"
+                                               value="4" />4
+                                        <label for="strong-radio4-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio5-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[5]" ng-click="TraceStrong(table,table.StrongArray[5],5)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[5]"
+                                               value="5" />5
+                                        <label for="strong-radio5-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio6-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[6]" ng-click="TraceStrong(table,table.StrongArray[6],6)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[6]"
+                                               value="6" />6
+                                        <label for="strong-radio6-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1">
+                                        <input type="checkbox" id="strong-radio7-t{{table.tableNumber}}" class="css-checkbox" ng-model="table.StrongArray[7]" ng-click="TraceStrong(table,table.StrongArray[7],7)" ng-disabled="(!table.Active || table.StrongValArray.length >= FormsSettingsModel.StrongNumber) && !table.StrongArray[7]"
+                                               value="7" />7
+                                        <label for="strong-radio7-t{{table.tableNumber}}" class="css-label"> </label>
+                                    </div>
+                                    <div class="number1"></div>
+                                    <div class="number1"></div>
+                                    <div class="number1"></div>
+                                </font>
+                            </div>
+
+                            <!-- bottom buttons -->
+                            <table class="buttons-table">
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm btn-block btn_loto"
+                                                ng-click="AutoFillAll(FormsSettingsModel.Tables)"
+                                                ng-hide="CalcFormData.numberForms == 1 || table.tableNumber == CalcFormData.numberForms">
+                                            <p style="font-size: 13px;"><translat key-val="מלא טופס אוטומטי" key-path="Product.html"></translat></p>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm btn-block btn_loto"
+                                                ng-click="SaveFormName()"
+                                                ng-show="CalcFormData.numberForms == 1 || table.tableNumber == CalcFormData.numberForms">
+                                            <p><translat key-val="שמור טופס בשם" key-path="Product.html"></translat></p>
+                                        </button>
+                                    </td>
+
+
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-success btn-block btn_loto white">
+                                            <p>
+                                                <translat key-val="מספרים" key-path="numbers-Product.html"></translat>&nbsp;
+                                                {{table.ValArray.length}}/{{FormsSettingsModel.ChoiceNumber}}
+                                                <br />
+                                                &nbsp;<translat key-val="חזקים" key-path="stromg-Product.html"></translat>&nbsp;
+                                                {{table.StrongValArray.length}}/{{FormsSettingsModel.StrongNumber}}
+                                            </p>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" ng-click="nextForm($event, table)"
+                                                class="btn btn-sm btn-danger btn-block btn_loto" ng-disabled="CalcFormData.numberForms == 1"
+                                                ng-class="{true: 'disabled'}[CalcFormData.numberForms == 1]"
+                                                ng-hide="CalcFormData.numberForms == 1 || table.tableNumber == CalcFormData.numberForms" style="background-color: #98d740 !important;">
+                                            <p style="color: #414141;"><translat key-val="המשך" key-path="Product.html"></translat></p>
+                                        </button>
+                                        <button type="submit" class="btn btn-sm btn-danger btn-block btn_loto"
+                                                ng-show="CalcFormData.numberForms == 1 || table.tableNumber == CalcFormData.numberForms" style="background-color: #98d740 !important;">
+                                            <p style="color: #414141;"><translat key-val="שלח טופס" key-path="Product.html"></translat>&nbsp;</p>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

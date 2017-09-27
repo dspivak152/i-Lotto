@@ -1,0 +1,52 @@
+﻿<div class="ngdialog-content select-popup save-name-popup">
+    <div class="ngdialog-message">
+
+        <fieldset>
+            <div class=" no-mony">
+                <div>{{FormMessagesModel.formNoMony}}</div>
+                <div>
+                    <translat key-val="להשלמת שליחת הטופס תועבר לעמוד תשלום על מנת להפקיד כסף בחשבון" key-path="Form.NoMonyDecision.html"></translat>
+                </div>
+                <div style="width:100%;float:right;margin: 10px 0 10px 0;" ng-show="userCredentials.CreditNumber != null && userCredentials.UseCreditToken">
+                    <!-- <input type="checkbox" ng-model="UseService" id="UseService-radio" class="css-checkbox money_checkbox" style="display: block;float: right;"> -->
+                    <div class="checkbox checkbox-info" style="float: right;">
+                        <input type="checkbox" id="UseService-radio" ng-model="UseService">
+                        <label for="UseService-radio"></label>
+                    </div>
+                    <div class="saved-number">
+                        {{userCredentials.CreditNumber}}
+                    </div>
+                    <!-- <div class="sc_contant_right_text" style="float: left;margin: 1% 0 0 10%;width: 35%;">
+                        <div style="margin-top: 11%;">
+                            <input type="checkbox" id="UseService-radio" class="css-checkbox" ng-model="UseService" />
+                            <label for="UseService-radio" class="css-label"> </label>
+                        </div>
+                    </div> -->
+                </div>
+                <div ng-show="userCredentials.CreditNumber != null && userCredentials.UseCreditToken">
+                    <a href="#" ng-click="ResetForm()" class="no_money_button" style="background-color: #272a6d;color: white;float: right;line-height: 41px;">
+                        <span> <translat key-val="ביטול" key-path="Form.NoMonyDecision.html"></translat></span>
+                    </a>
+                    <a href="#" ng-click="PayUsingWebService()" class="no_money_button pay_no_btn" style="background-color: #98d740;color: #272a6d;float: left;">
+                        <span ng-show="UseService">
+                            <translat key-val="תשלום עם כרטיס שמור" key-path="Form.NoMonyDecision.html"></translat>
+                        </span>
+                        <span ng-show="!UseService">
+                            <translat key-val="תשלום" key-path="Form.NoMonyDecision.html"></translat>
+                        </span>
+                    </a>
+                </div>
+                <div ng-hide="userCredentials.CreditNumber != null && userCredentials.UseCreditToken">
+                    <a href="#" ng-click="Pay()" class="back_button">
+                        <translat key-val="לתשלום" key-path="Form.NoMonyDecision.html"></translat>
+                    </a>
+
+                    <a href="#" ng-click="ResetForm()" class="sec_p_red_button">
+                        <translat key-val="ביטול" key-path="Form.NoMonyDecision.html"></translat>
+                    </a>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿<div class="ngdialog-content select-popup">
+    <div class="ngdialog-message">
+        <fieldset>
+            <div class="yallow_slite_bg">
+                <translat key-val="תוצאות הגרלה מספר:" key-path="OpenRaffle.html"></translat>
+                &nbsp;{{Raffle.RaffleNumber}}
+            </div>
+            <div class="yallow_br form-tables-br">
+                <div class="open-raffle">
+                    <span>
+                        <translat key-val="בתאריך:" key-path="OpenRaffle.html"></translat>
+                    </span>
+                    <span>
+                        {{Raffle.RaffledateFormat}}
+                    </span>
+                </div>
+                <table class="open-raffle">
+                    <tr>
+                        <th>
+                            <translat key-val="מספרים שעלו בגורל:" key-path="OpenRaffle.html"></translat>
+                        </th>
+                        <td>
+                            {{Raffle.Numbers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <translat key-val="מספר חזק:" key-path="OpenRaffle.html"></translat>
+                        </th>
+                        <td>
+                            {{Raffle.Strong}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <translat key-val="מספרי אקסטרא:" key-path="OpenRaffle.html"></translat>
+                        </th>
+                        <td>
+                            {{Raffle.ExtraNumbers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <translat key-val="סכום זכיה:" key-path="OpenRaffle.html"></translat>
+                        </th>
+                        <td>
+                            {{Raffle.RegSum}}
+                            <translat key-val="(מיליון)" key-path="OpenRaffle.html"></translat>
+                            <translat key-val="₪" key-path="OpenRaffle.html"></translat>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <translat key-val="סכום זכיה בדאבל:" key-path="OpenRaffle.html"></translat>
+                        </th>
+                        <td>
+                            {{Raffle.DoubleSum}}
+                            <translat key-val="(מיליון)" key-path="OpenRaffle.html"></translat>
+                            <translat key-val="₪" key-path="OpenRaffle.html"></translat>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</div>

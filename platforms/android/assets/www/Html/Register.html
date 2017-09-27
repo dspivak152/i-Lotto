@@ -1,0 +1,187 @@
+<!-- START google login-->
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="994611551395-30p2uhl1thoci46a73lka9m6t10jkufr.apps.googleusercontent.com">
+<!-- END google login-->
+<div>
+    <nevigation menu-id="6"></nevigation>
+
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-container stats-container">
+                    <div class="contianer">
+                        <div class="sec_p_yallw_strip width65">
+                            <translat key-val="הרשמה" key-path="Register.html"></translat>
+                        </div>
+                    </div>
+                    <form name="RegisterForm" class="RegisterForm" ng-submit="Register()" novalidate>
+                        <div class="contianer not_padding">
+
+                            <div class="seprator"></div>
+
+                            <div class="login">
+                                <div class="contact_left_input">
+                                    <div class="row">
+                                        <div class="input-group margin-bottom-sm first_input" >
+                                            <div class="row">
+                                                <div class="input_fild">
+                                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                                    <input type="text" class="input_look_up" placeholder="שם מלא" required ng-minlength="3" ng-model="credentials.Name" name="Name">
+                                                </div>
+                                            </div>
+                                            <div ng-show="RegisterForm.$submitted && RegisterForm.Name.$invalid" class="form-error">
+                                                <div ng-show="RegisterForm.Name.$error.required">
+                                                    <translat key-val="Name Is Required" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.Name.$error.minlength">
+                                                    <translat key-val="Min Length 3 letters" key-path="Register.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-id-card" aria-hidden="true"></i>
+                                                    <input type="tel" class="input_look_up" placeholder="תעודת זהות" required ng-minlength="8" ng-maxlength="9" ng-model="credentials.identityNumber" name="identityNumber">
+                                                </div>
+                                                
+                                            </div>
+                                            <div ng-show="RegisterForm.$submitted && RegisterForm.identityNumber.$invalid" class="form-error">
+                                                <div ng-show="RegisterForm.identityNumber.$error.required">
+                                                    <translat key-val="identityNumber Is Required" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.identityNumber.$error.minlength">
+                                                    <translat key-val="Min Length 8 letters" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.identityNumber.$error.maxlength">
+                                                    <translat key-val="Max Length 9 letters" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.identityNumber.$error.custom">
+                                                    <translat key-val="Not A Valid identityNumber" key-path="Register.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm" >
+                                                <div class="row">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <input type="email" class="input_look_up" placeholder='דוא"ל' required ng-minlength="6" ng-model="credentials.userName" name="userName">
+                                                </div>
+                                            </div>
+                                            <div ng-show="RegisterForm.$submitted && RegisterForm.userName.$invalid" class="form-error">
+                                                <div ng-show="RegisterForm.userName.$error.email">
+                                                    <translat key-val="Not Valid Email" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.userName.$error.minlength">
+                                                    <translat key-val="Min Length 6 letters" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.userName.$error.required">
+                                                    <translat key-val="Email Is Required" key-path="Register.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class="input-group margin-bottom-sm">
+                                                <div class="row">
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <input type="tel" class="input_look_up" placeholder="נייד" required ng-minlength="6" ng-model="credentials.cell" name="cell">
+                                                </div>
+                                            </div>
+                                            <div ng-show="RegisterForm.$submitted && RegisterForm.cell.$invalid" class="form-error">
+                                                <div ng-show="RegisterForm.cell.$error.required">
+                                                    <translat key-val="Cell Phone Is Required" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.cell.$error.minlength">
+                                                    <translat key-val="Min Length 6 letters" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.cell.$error.custom">
+                                                    <translat key-val="Not A Valid Cell Phone" key-path="Register.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact_left_input">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm" >
+                                                <div class="row">
+                                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                                    <input type="password" class="input_look_up" placeholder="סיסמה" required ng-minlength="6" ng-model="credentials.password" name="password">
+                                                </div>
+                                            </div>
+                                            <div ng-show="RegisterForm.$submitted && RegisterForm.password.$invalid" class="form-error">
+                                                <div ng-show="RegisterForm.password.$error.required">
+                                                    <translat key-val="Password Is Required" key-path="Register.html"></translat>
+                                                </div>
+                                                <div ng-show="RegisterForm.password.$error.minlength">
+                                                    <translat key-val="Min Length 6 letters" key-path="Register.html"></translat>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact_left_input" style="margin: 0 ! important;">
+                                    <div class="input_fild">
+                                        <div class="row">
+                                            <div class=" input-group margin-bottom-sm agree-register" >
+                                                <label class=" text-left register_agree" style="margin: 0 ! important;padding: 0 ! important;">
+                                                    <input type="checkbox" required ng-model="credentials.confirmRules" name="confirmRules">
+                                                    <span class="havecheckbox" style="padding-bottom: 4px;! important;">
+                                                        <translat key-val="אני מסכים לתנאים וההגבלות." key-path="Register.html"></translat>
+                                                    </span>
+                                                </label>
+
+                                                <div ng-show="RegisterForm.$submitted && RegisterForm.confirmRules.$invalid" class="form-error">
+                                                    <div ng-show="RegisterForm.confirmRules.$error.required">
+                                                        <translat key-val="Confirm Rules Is Required" key-path="Register.html"></translat>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                                
+                                <div class="margin-bottom-sm contact_left_input">
+                                <input type="button" value="הרשם" ng-click="Register()" class="sin_in_up green" />
+
+                                    <button ng-click="faceBookLogIn()" class="form-control sin_in_up blue facebookInBtn" style="color: white !important;"><span class="facebook" ><i class="fa fa-facebook" aria-hidden="true" style="color: white;font-size: x-large;"></i></span> הרשם באמצעות הפייסבוק</button>
+
+                                <div style="position: relative">
+                                    <input type="button" ng-click="googleLogin()" value="הרשם באמצעות גוגל" class="sin_in_up red" style="z-index: 33;" />
+                                </div>
+                                <div class="g-signin2" data-width="320" style="position:absolute;top:-9999px;left:-9999px;" data-onsuccess="onSignIn"></div>
+
+                                <a ui-sref="LogIn" class="" style="font-weight: bold;">
+                                    <translat key-val="התחבר" key-path="Register.html"></translat>
+                                </a>
+
+                                <P style="display: inline-block;"> ?יש לך חשבון</P>
+
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

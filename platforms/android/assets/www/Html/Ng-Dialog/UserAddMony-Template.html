@@ -1,0 +1,29 @@
+﻿<div class="ngdialog-content">
+    <form class="form-horizontal" name="Form" ng-submit="Save(Form,Name)" novalidate>
+        <div class="ngdialog-message">
+
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Save Form By Name</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Name">Form Name</label>
+                    <div class="col-md-5">
+                        <input type="text" placeholder="form name" class="form-control input-md" required ng-minlength="3" ng-model="Name">
+                        <div ng-show="Form.$submitted">
+                            <div ng-show="Form.$error.required">{{FormMessagesModel.FormNameRequired}}</div>
+                            <div ng-show="Form.$error.minlength">{{FormMessagesModel.nameError}}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+        </div>
+        <div class="ngdialog-buttons mt">
+            <button type="submit" class="ngdialog-button ngdialog-button-primary">Save</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+﻿<div class="ngdialog-content select-popup popup_num_tables">
+    <div class="ngdialog-message">
+
+        <fieldset>
+            <!-- form head, select type -->
+            <div class="yallow_slite_bg" style="background: none;margin-top: 10px;">
+                <!--{{LocalNames.formSettingsHeader}}-->
+                <span ng-show="LocalNames.HeaderNumber == 1">
+                    <translat key-val="בחר כמות טבלאות" key-path="Select-Form-Option.html"></translat>
+                </span>
+                <span ng-show="LocalNames.HeaderNumber == 2">
+                    <translat key-val="בחר כמות ניחושים" key-path="Select-Form-Option.html"></translat>
+                </span>
+                <span ng-show="LocalNames.HeaderNumber == 3">
+                    <translat key-val="בחר כמות מספרים חזקים" key-path="Select-Form-Option.html"></translat>
+                </span>
+            </div>
+
+            <div class="yallow_br pink_row" style="border: none;text-align: center;">
+                <div class="radio_button radio_button{{FormsSettingsModel.SelectionOptions.length}}" ng-repeat="option in FormsSettingsModel.SelectionOptions track by $index">
+                    <div>{{option.Value}}</div>
+                    <input type="radio" id="radios-{{option.Key}}" value="{{option.Key}}" ng-model="FormsSettingsModel.Selected_SelectionOptions" />
+                    <label for="radios-{{option.Key}}">
+                        <span class="span_dialog formHeadSpanCall{{FormsSettingsModel.SelectionOptions.length}}"></span>
+                    </label>
+                </div>
+            </div>
+
+        </fieldset>
+
+    </div>
+</div>
+<style>
+    .ngdialog-content {
+        border-radius: 0 !important;
+    }
+</style>

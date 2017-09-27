@@ -1,0 +1,116 @@
+﻿<div>
+    <header>
+        <div class="header">
+            <div class="header_background">
+                <a class="header-background-link" ng-class="{current: $state.current.name === 'Home', disabled:updateStep}" ui-sref="{{updateStep?'-':'Home'}}"></a>
+                <div class="modal-shiftfix">
+                    <div style="overflow: visible;" class="navbar navbar-fixed-top scroll-hide">
+                        <div class="container-fluid top-bar">
+                            <button class="navbar-toggle"></button>
+                        </div>                        
+                        <div class="container-fluid left-main-nav clearfix">
+                            <div class="nav-collapse">
+                                <ul class="nav">
+                                    <li ng-hide="updateStep">
+                                        <topbuttons></topbuttons>
+                                    </li>
+
+                                    <li>
+                                        <a ng-class="{current: $state.current.name === 'Home', disabled:updateStep}" ui-sref="{{updateStep?'-':'Home'}}">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="דף הבית" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-show="$LogInState" ng-class="{current: $state.current.name === 'PersonalArea', disabled: $LogInState === false}">
+                                        <a ng-class="{current: $state.current.name === 'PersonalArea', disabled: $LogInState === false}" ui-sref="PersonalArea">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="אזור אישי" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-show="$LogInState" ng-class="{disabled: $LogInState === false}">
+                                        <a ng-class="{current: $state.current.name === 'Financial.Deposit', disabled: $LogInState === false}" ui-sref="Financial.Deposit">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="הפקדה לחשבון" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-show="$LogInState" ng-class="{disabled: $LogInState === false}">
+                                        <a ng-class="{current: $state.current.name === 'Financial.Withdrawal', disabled: $LogInState === false}"
+                                           ui-sref="Financial.Withdrawal">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="בקשת משיכה" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-show="$LogInState" ng-class="{current: $state.current.name === 'SweepstakesArchive', disabled: $LogInState === false}">
+                                        <a ng-class="{current: $state.current.name === 'SweepstakesArchive', disabled: $LogInState === false}" ui-sref="SweepstakesArchive">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="ארכיון הגרלות" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-show="$LogInState" ng-class="{current: $state.current.name === 'Update', disabled: $LogInState !== true}">
+                                        <a ng-class="{current: $state.current.name === 'Update', disabled: $LogInState !== true}" ui-sref="Update">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="עדכון פרטים" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-hide="updateStep" ng-class="{dropdown: Page.havChildren}" ng-repeat="Page in MenuPages track by $index">
+
+                                        <a ng-hide="Page.havChildren" ui-sref="Page({PageId: {{Page.id}}})">
+                                            <span aria-hidden="true" class="se7en-home"></span>{{Page.name}}
+                                        </a>
+
+                                        <a data-toggle="dropdown" href="#" ng-show="Page.havChildren">
+                                            <span aria-hidden="true" class="se7en-star"></span>{{Page.name}}<b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu" ng-show="Page.havChildren">
+                                            <li ng-repeat="child in Page.children track by $index">
+                                                <a ui-sref="Page({PageId: {{child.id}}})">
+                                                    <span aria-hidden="true" class="se7en-home"></span>{{child.name}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li ng-hide="$LogInState" ng-class="{current: $state.current.name === 'LogIn', disabled: $LogInState === true}">
+                                        <a ng-class="{current: $state.current.name === 'LogIn', disabled: $LogInState === true}" ui-sref="LogIn">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="כניסה" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-hide="$LogInState" ng-class="{current: $state.current.name === 'Register', disabled: $LogInState === true}">
+                                        <a ng-class="{current: $state.current.name === 'Register', disabled: $LogInState === true}" ui-sref="Register">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="הרשמה" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+
+                                    <li ng-class="{current: $state.current.name === 'ContactUs'}">
+                                        <a ng-class="{current: $state.current.name === 'ContactUs'}" ui-sref="ContactUs">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="צור קשר" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+                                    
+                                    <li ng-show="$LogInState" ng-class="{disabled: $LogInState === false}">
+                                        <a ng-class="{disabled: $LogInState === false}" href="#" ng-click="LogOut()">
+                                            <span aria-hidden="true" class="se7en-home"></span>
+                                            <translat key-val="יציאה" key-path="Headder.html"></translat>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shadow"><img src="style/images/shadow.png" alt="shadow"></div>
+        </div>
+    </header>
+</div>

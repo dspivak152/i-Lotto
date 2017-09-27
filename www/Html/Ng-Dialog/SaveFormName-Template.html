@@ -1,0 +1,50 @@
+﻿<div class="ngdialog-content select-popup save-name-popup">
+    <div class="ngdialog-message">
+        <form class="form-horizontal" name="Form" ng-submit="Save(Form,Name)" novalidate>
+            <fieldset>
+                <!-- form head, select type -->
+                <div class="yallow_slite_bg">
+                    <translat key-val="שמור טופס בשם" key-path="SaveFormName-Template.html"></translat>
+                </div>
+
+                <div class="yallow_br no-mony">
+
+                    <div class="form-group">
+                        <!-- <div class="input_fild col-md-5">
+                            <input type="text" class="form-control input-md" placeholder="הכנס שם" required ng-minlength="3" ng-model="Name">
+
+                            <div ng-show="Form.$submitted" class="form-error">
+                                <div ng-show="Form.$error.required">{{FormMessagesModel.FormNameRequired}}</div>
+                                <div ng-show="Form.$error.minlength">{{FormMessagesModel.nameError}}</div>
+                            </div>
+                        </div> -->
+
+
+
+                        <div class="ngdialog-buttons mt">
+                            <div class=" input-group margin-bottom-sm" style=" ">
+                                <div class="row">
+                                    <i class="fa fa-user" aria-hidden="true" style="margin-left:-4px;"></i>
+                                    <div class="input-group-addon  hidden-xs"> </div>
+                                    <input type="text" placeholder="הכנס שם" class="input_look_up" required ng-minlength="3" ng-model="Name">
+                                    <div ng-show="Form.$submitted" class="form-error">
+                                        <div ng-show="Form.$error.required">{{FormMessagesModel.FormNameRequired}}</div>
+                                        <div ng-show="Form.$error.minlength">{{FormMessagesModel.nameError}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- ngdialog-button ngdialog-button-primary -->
+                            <button type="submit" class="green sin_in_up submit_btn">
+                                <translat key-val="שמור" key-path="SaveFormName-Template.html"></translat>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
