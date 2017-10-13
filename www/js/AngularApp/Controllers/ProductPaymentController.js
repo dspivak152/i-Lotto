@@ -1,14 +1,5 @@
 ﻿'use strict';
-var windowPayment = null;
-var state = null;
-function windowPayment_loadStartHandler(event) {
- if(event.url.indexOf('m.ilotto') > -1){
-    windowPayment.close();
-    setTimeout(function(){
-        state.go("Home");
-    }, 5000);
- }
-}
+
 IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$state', 'LogInService', 'localStorageService', 'NotificationService', 'ProductService', 'DataModelsService', 'ngDialog', 'MenuService', '$ProductForm', 'PaymentService', '$window'
     , '$timeout', '$location',
     function ($rootScope, $scope, $state, LogInService, localStorageService, NotificationService, ProductService, DataModelsService,
@@ -152,10 +143,6 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
                                 localStorageService.remove('SavedPageForMony');
                                 ProductService.setProductForm(null);
 
-
-
-
-
                                windowPayment = window.open($rootScope.$imageUrl + 'Payment/RedirectFormToZ?formId=' + response.data.data, '_blank', 'location=yes');
                                windowPayment.addEventListener('loadstop', windowPayment_loadStartHandler);
                             }
@@ -169,28 +156,6 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
                         }, );
                 }
 
-//        var OpenWindowWithPost = function (params) {
-//         var inputs = MapObject(params, 'SaveFormPostModel.');
-//                            for (var i in inputs) {
-//                            if(i != "0"){
-//                              console.log(inputs[i]);
-//                            }
-//            var form = document.createElement("form");
-//            form.setAttribute("method", "post");
-//            form.setAttribute("action", $rootScope.$imageUrl + 'Payment/PostSaveAndRedirect');
-//            form.setAttribute("target", '_blank');
-//
-//            var inputs = MapObject(params, 'SaveFormPostModel.');
-//            for (var i in inputs) {
-//                form.appendChild(inputs[i]);
-//            }
-//
-//            document.body.appendChild(form);
-//            form.submit();
-//            document.body.removeChild(form);
-
-         //}
-        //}
         var MapObject = function (item, name, $inputs) {
             if (typeof $inputs === 'undefined')
                 $inputs = [];

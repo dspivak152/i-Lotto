@@ -3,9 +3,9 @@ var windowPayment = null;
 var state = null;
 function windowPayment_loadStartHandler(event) {
  if(event.url.indexOf('m.ilotto') > -1){
-    windowPayment.close();
+    state.go("Home");
     setTimeout(function(){
-        state.go("Home");
+        windowPayment.close();
     }, 5000);
  }
 }
@@ -124,8 +124,7 @@ IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'Dat
             }
         }
 
-        $scope.SaveForm = function () {
-            
+        $scope.SaveForm = function () {            
             $scope.checkValidity();
 
             if ($scope.financialForm.$invalid || !$scope.financialForm.$valid)
@@ -202,22 +201,6 @@ IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'Dat
             $scope.ShowBanksForm = false;
         };
         
-        // var OpenWindowWithPost = function (params) {
-        //     var form = document.createElement("form");
-        //     form.setAttribute("method", "post");
-        //     form.setAttribute("action", $rootScope.$imageUrl + 'Payment/PostSaveAndRedirect');
-        //     form.setAttribute("target", '_blank');
-
-        //     var inputs = MapObject(params, 'SaveFormPostModel.');
-        //     for (var i in inputs) {
-        //         form.appendChild(inputs[i]);
-        //     }
-
-        //     document.body.appendChild(form);
-        //     form.submit();
-        //     document.body.removeChild(form);
-        // }
-
         $scope.WindowOpen = function (Amount) {
             windowPayment = $window.open(
                             $rootScope.$imageUrl
