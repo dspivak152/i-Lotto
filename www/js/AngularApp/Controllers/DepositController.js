@@ -1,14 +1,5 @@
 ﻿'use strict';
-var windowPayment = null;
-var state = null;
-function windowPayment_loadStartHandler(event) {
- if(event.url.indexOf('m.ilotto') > -1){
-    state.go("Home");
-    setTimeout(function(){
-        windowPayment.close();
-    }, 5000);
- }
-}
+
 IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'DataModelsService', '$state', '$stateParams', 'LogInService', 'localStorageService', 'NotificationService', 'MenuService', 'ngDialog', 'ProductService', '$window',
     function ($rootScope, $scope, $Page, DataModelsService, $state, $stateParams, LogInService, localStorageService, NotificationService, MenuService, ngDialog, ProductService, $window) {
         
