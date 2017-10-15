@@ -5,7 +5,6 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
     function ($rootScope, $scope, $state, LogInService, localStorageService, NotificationService, ProductService, DataModelsService,
                 ngDialog, MenuService, $ProductForm, PaymentService, $window, $timeout, $location) {
         
-		state = $state;
         $scope.broadcastHome = function () {///REMOVE ALL STORED DATA AND GO TO HOME TO RE-START
             localStorageService.remove('SavedPageForMony');
             ProductService.setProductForm(null);

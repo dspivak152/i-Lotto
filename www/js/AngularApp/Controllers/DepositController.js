@@ -3,7 +3,6 @@
 IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'DataModelsService', '$state', '$stateParams', 'LogInService', 'localStorageService', 'NotificationService', 'MenuService', 'ngDialog', 'ProductService', '$window',
     function ($rootScope, $scope, $Page, DataModelsService, $state, $stateParams, LogInService, localStorageService, NotificationService, MenuService, ngDialog, ProductService, $window) {
         
-		state = $state;
         var broadcastHome = function (func) {
             $state.go("Home");
             if (typeof func == 'function')
