@@ -28,8 +28,6 @@ IlottoApp.controller('LogInController',
                 openFB.login(
                     function (response) {
                         if (response.status === 'connected') {
-                            // console.log('response', response);
-                            // console.log('Facebook login succeeded, got access token: ', response.authResponse.accessToken);
                             $scope.getInfo();
                         } else {
                             console.log('Facebook login failed: ' + response.error);

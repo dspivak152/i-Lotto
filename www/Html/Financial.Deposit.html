@@ -15,9 +15,11 @@
                         <div class="cradits_bts">
                             <button class="sin_in_up green deposit-bank-btn" ng-hide="ShowDeposit" ng-click="ShowHideBanks()">
                                 <i class="fa fa-chevron-down" aria-hidden="true" style="left: 11px;"></i>
-                                <img ng-show="ShowBanksForm&&selectedBank==3" src="http://www.ilotto.co.il/UserContent/bit.jpg" alt="שירות bit" title="שירות bit" class="imgInBtn">
-                                <img ng-show="ShowBanksForm&&selectedBank==2" src="http://www.ilotto.co.il/UserContent/pay.jpg" alt="שירות pay" title="שירות pay" class="imgInBtn">
-                                <img ng-show="ShowBanksForm&&selectedBank==1" src="http://www.ilotto.co.il/UserContent/banks.jpg" alt="העברה בנקאית" title="העברה בנקאית" class="imgInBtn">
+
+                                <img ng-show="ShowBanksForm&&selectedBank==3" src="img/bit.jpg" alt="שירות bit" title="שירות bit" class="imgInBtn">
+                                <img ng-show="ShowBanksForm&&selectedBank==2" src="img/pay.jpg" alt="שירות pay" title="שירות pay" class="imgInBtn">
+                                <img ng-show="ShowBanksForm&&selectedBank==1" src="img/banks.jpg" alt="העברה בנקאית" title="העברה בנקאית" class="imgInBtn">
+
                                 <p ng-show="ShowBanksForm && selectedBank != ''">העברה בנקאית</p>
                                 <p ng-show="!(ShowBanksForm && selectedBank != '')" style="margin-top:8px;">העברה בנקאית</p>
                                 <i class="fa fa-share-square-o" aria-hidden="true"></i>
@@ -42,19 +44,22 @@
                             <div>
                                 <div class="bank_icon_row">
                                     <div class="bank_icon" ng-click="SelectPayOption(DepositDetails[2])" ng-model="selectedBank">
-                                        <img src="http://www.ilotto.co.il/UserContent/bit.jpg" alt="שירות bit" title="שירות bit" />
+                                        <img src="img/bit.jpg" alt="שירות bit" title="שירות bit" />
+                                        
                                         <p>אפליקציית שירות</p>
                                     </div>
                                 </div>
                                 <div class="bank_icon_row">
                                     <div class="bank_icon" ng-click="SelectPayOption(DepositDetails[1])" ng-model="selectedBank">
-                                        <img src="http://www.ilotto.co.il/UserContent/pay.jpg" alt="שירות pay" title="שירות pay" />
+                                        <img src="img/pay.jpg" alt="שירות pay" title="שירות pay" />
+
                                         <p>אפליקציית שירות</p>
                                     </div>
                                 </div>
                                 <div class="bank_icon_row">
                                     <div class="bank_icon" ng-click="SelectPayOption(DepositDetails[0])" ng-model="selectedBank">
-                                        <img src="http://www.ilotto.co.il/UserContent/banks.jpg" alt="העברה בנקאית" title="העברה בנקאית" />
+                                        <img src="img/banks.jpg" alt="העברה בנקאית" title="העברה בנקאית" />
+
                                         <p>העברה מכל בנק</p>
                                     </div>
                                 </div>
@@ -78,7 +83,8 @@
                                     3) העבר לאיש קשר החדש "i-Lotto" את הסכום המבוקש.<br>
                                     4) העתק מתוך השירות את מספר האסמכתא שהתקבל ומלא את הפרטים בהמשך.<br>
                                     <a href="http://www.bitpay.co.il/">הסבר ורישום לשירת אתר "bit"</a>
-                                    <img src="http://www.ilotto.co.il/UserContent/bit.jpg" alt="שירות bit" title="שירות bit" style="width: 47px;float: left;">
+                                    <img src="img/bit.jpg" alt="שירות bit" title="שירות bit" style="width: 47px;float: left;">
+
                                     <div style="clear:both;"></div>
                                 </div>
                                 <div class="bank_message" style="font-weight: 500;" ng-show="selectedBank==2">
@@ -87,7 +93,8 @@
                                     3) העבר לאיש קשר החדש "i-Lotto" את הסכום המבוקש.<br>
                                     4) העתק מתוך השירות את מספר האסמכתא שהתקבל ומלא את הפרטים בהמשך.<br>
                                     <a href="http://www.pepper.co.il/">הסבר ורישום לשירת אתר "Pay"</a>
-                                    <img src="http://www.ilotto.co.il/UserContent/pay.jpg" alt="שירות pay" title="שירות pay" style="width: 47px;float: left;" />
+                                    <img src="img/pay.jpg" alt="שירות pay" title="שירות pay" style="width: 47px;float: left;" />
+
                                     <div style="clear:both;"></div>
                                 </div>
                                 <div class="bank_message" style="font-weight: 500;" ng-show="selectedBank==1">
@@ -150,8 +157,6 @@
                                     <div class="input_fild">
                                         <i class="fa fa-hashtag" aria-hidden="true"></i>
                                         <input type="text" class="input_look_up" placeholder='מספר אסמכתא' required ng-minlength="6" ng-model="RefrenceNumber" name="RefrenceNumber">
-
-                                        <!--<input type="text" readonly onfocus="this.removeAttribute('readonly');" class="input_look_up" placeholder='מספר אסמכתא' required ng-minlength="6" ng-model="RefrenceNumber" name="RefrenceNumber">-->
 
                                         <div ng-show="financialForm.$submitted && financialForm.RefrenceNumber.$invalid" class="form-error">
                                             <div ng-show="financialForm.RefrenceNumber.$error.required">
@@ -240,209 +245,3 @@
         </div>
     </div>
 </div>
-
-<!--<link href="style/css/style1.css" rel="stylesheet" type="text/css">
-<div>
-    <nevigation menu-id="6"></nevigation>
-
-    <div class="container-fluid main-content">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="widget-container stats-container">
-                    
-                    <div class="contianer">
-                        <div class="sec_p_yallw_strip">{{$Page.Name}}</div>
-                    </div>
-
-					<div class="container_credit">
-						<div  class="cradits_bts">
-							<button class="sin_in_up green" ng-hide="ShowDeposit" ng-click="ShowHideBanks()" >
-								<i class="fa fa-chevron-down" aria-hidden="true" style="left: 11px;"></i>
-								העברה בנקאית
-								<i class="fa fa-share-square-o" aria-hidden="true"></i>
-							</button>
-	                    	<button class="sin_in_up green" ng-hide="ShowBanks || ShowBanksForm" ng-click="Deposit()" >
-	                    		<i class="fa fa-chevron-down" aria-hidden="true" style="left: 11px;"></i>
-								כרטיס אשראי
-								<i class="fa fa-credit-card" aria-hidden="true"></i>
-							</button>
-	                    </div>
-	
-	                    <div ng-show="ShowBanks" class="yallow_slite_bg mar_top_20 mar_bt_20" style="background: transparent;">
-	                        <strong><u><translat key-val="בחר את הבנק בו מתנהל חשבונך" key-path="Financial.Deposit.html"></translat></u></strong>
-	                    </div>
-	
-	                    <div ng-show="ShowDeposit" class="yallow_slite_bg mar_top_20 mar_bt_20" style="background: transparent;">
-	                        <strong><u><translat key-val="בחר סכום ושיטת תשלום" key-path="Financial.Deposit.html"></translat></u></strong>
-	                    </div>
-
-	                    <div ng-show="ShowBanks" class="bank_icon_m_dic">
-	                        <div ng-repeat="detail in DepositDetails track by $index">
-	                            <div class="bank_icon_row" ng-if="$even">
-	                                <div class="bank_icon" ng-click="SelectPayOption(DepositDetails[$index])" ng-model="selectedBank" btn-radio="{{DepositDetails[$index]}}">
-	                                    <img src="{{DepositDetails[$index].ImageUrl}}" alt="{{DepositDetails[$index].BankName}}" title="{{detail.BankName}}" />
-	                                </div>
-	                                <div ng-show="DepositDetails.length > ($index + 1)" class="bank_icon" ng-click="SelectPayOption(DepositDetails[$index + 1])" ng-model="selectedBank" btn-radio="{{DepositDetails[$index + 1]}}">
-	                                    <img src="{{DepositDetails[$index + 1].ImageUrl}}" alt="{{DepositDetails[$index + 1].BankName}}" title="{{DepositDetails[$index + 1].BankName}}" />
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    
-	                    <div class="contianer info-page" ng-show="ShowBanksForm && selectedBank != ''">
-	                        <div class="chat-bubble3 dw-chat bank-chat">
-	                            <div class="contianer" ng-show="$Page.ShortText != null">
-	                                <div class="linear-h1">
-	                                    {{$Page.ShortText}}
-	                                </div>
-	                            </div>
-	                            <p style="text-align: right;">
-	                            	<i class="fa fa-exclamation" aria-hidden="true"></i>
-								הסבר:
-	                            </p>
-                                <div class="bank_message">
-                                    <translat key-val="Deposit-Instructions" key-path="Financial.Deposit.html"></translat>
-                                </div>
-	                            <div class="bank_icon_row">
-	                                <translat key-val="שם הבנק:" key-path="Financial.Deposit.html"></translat>
-	                                {{depositModel.BankName}}
-	                            </div>
-	                            <div class="bank_icon_row">
-	                                <translat key-val="מספר הסניף:" key-path="Financial.Deposit.html"></translat>
-	                                {{depositModel.BranchNumber}}
-	                            </div>
-	                            <div class="bank_icon_row">
-	                                <translat key-val="מספר חשבון:" key-path="Financial.Deposit.html"></translat>
-	                                {{depositModel.AccountNumber}}
-	                            </div>
-	                            <div class="bank_icon_row">
-	                                <translat key-val="שם המוטב:" key-path="Financial.Deposit.html"></translat>
-	                                {{depositModel.Recipient}}
-	                            </div>
-	                        </div>
-	                    </div>
-	
-	                    <form class="ContactForm" name="financialForm" ng-submit="SaveForm()" novalidate ng-show="ShowBanksForm && selectedBank != ''">
-	                        <div class="contianer">
-                                	
-	                            <div class="contact_left_input field_with_icon">
-	                                <div class="input_fild">
-	                                	<i class="fa fa-user" aria-hidden="true" style="margin-top: 9px;"></i>
-	                                    <input type="text" class="input_look_up" placeholder='שם משתמש' required ng-minlength="3" ng-model="$credentials.user.UserName" name="UserName">
-	                                    
-                                        <div ng-show="financialForm.$submitted && financialForm.RefrenceNumber.$invalid" class="form-error">
-	                                        <div>
-	                                            <translat key-val="שם משתמש הוא חובה" key-path="Financial.Deposit.html"></translat>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	
-	                            <div class="contact_left_input field_with_icon">
-	                                <div class="input_fild">
-	                                	<i class="fa fa-ils" aria-hidden="true"></i>
-	                                    <input type="tel" class="input_look_up" placeholder='סכום' required min="1" ng-model="Amount" name="Amount">
-
-                                        <div ng-show="financialForm.$submitted && financialForm.RefrenceNumber.$invalid" class="form-error">
-                                            <div ng-show="financialForm.RefrenceNumber.$error.required">
-                                                <translat key-val="סכום הוא שדה חובה" key-path="Financial.Deposit.html"></translat>
-                                            </div>
-                                            <div ng-show="financialForm.RefrenceNumber.$error.over">
-                                                <translat key-val="סכום גדול מהסכום בחשבון" key-path="Financial.Deposit.html"></translat>
-                                            </div>
-                                        </div>
-	                                </div>
-	                            </div>
-	
-	                            <div class="contact_left_input field_with_icon">
-	                                <div class="input_fild">
-	                                	<i class="fa fa-hashtag" aria-hidden="true"></i>
-	                                    <input type="text" readonly onfocus="this.removeAttribute('readonly');" class="input_look_up" placeholder='מספר אסמכתא' required ng-minlength="6" ng-model="RefrenceNumber" name="RefrenceNumber">
-
-                                        <div ng-show="financialForm.$submitted && financialForm.RefrenceNumber.$invalid" class="form-error">
-                                            <div ng-show="financialForm.RefrenceNumber.$error.required">
-                                                <translat key-val="אסמכתא הוא שדה חובה" key-path="Financial.Deposit.html"></translat>
-                                            </div>
-                                            <div ng-show="financialForm.RefrenceNumber.$error.minlength">
-                                                <translat key-val="חובה להכניס לפחות 6 תווים" key-path="Financial.Deposit.html"></translat>
-                                            </div>
-                                        </div>
-	                                </div>
-	                            </div>
-	                            
-	                            <div class="contact_left_input field_with_icon">
-	                                <div class="input_fild">
-	                                	<i class="fa fa-unlock-alt" ariaw-hidden="true"></i>
-	                                    <input type="password" class="input_look_up" placeholder='סיסמה' required ng-minlength="6" ng-model="password" name="password">
-
-	                                    <div ng-show="financialForm.$submitted && financialForm.password.$invalid" class="form-error">
-	                                        <div ng-show="financialForm.password.$error.required">
-	                                            <translat key-val="סיסמה הוא שדה חובה" key-path="Financial.Deposit.html"></translat>
-	                                        </div>
-                                            <div ng-show="financialForm.password.$error.minlength">
-                                                <translat key-val="חובה להכניס לפחות 6 תווים" key-path="Financial.Deposit.html"></translat>
-                                            </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	
-	                            <button type="submit" class="margin_bt_20 green send_bank" style="width: 100% !important;">
-	                                <translat key-val="שמור" key-path="Financial.Deposit.html"></translat>
-	                            </button>
-	                        </div>
-	                    </form>
-	
-	                    <form class="ContactForm" name="DepositForm" ng-submit="SaveDepositForm(DepositForm, ModelDeposit)" novalidate ng-show="ShowDeposit">
-	                        <div class="contianer">
-	                            <div class="seprator"></div>
-	
-	                            <div class="contact_left_input field_with_icon" ng-class="{true: 'error'}[DepositForm.$submitted && ModelDeposit.Amount.$invalid]">
-	                                <div class="input_fild">
-	                                	<i class="fa fa-ils" aria-hidden="true"></i>
-	                                    <input type="tel" class="input_look_up" placeholder='סכום' required min="10" ng-model="ModelDeposit.Amount">
-	                                    <div ng-show="DepositForm.$submitted && ModelDeposit.$error.Amount.$error" class="form-error">
-	                                        <div ng-show="ModelDeposit.$error.Amount.$error">
-	                                            <translat key-val="חובה להכניס סכום" key-path="Financial.Deposit.html"></translat>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	
-	                            <div class="credit_div" ng-show="$ShowDepositState">
-	                            	<div class="sc_contant_ext_text row_credit_right row1">
-	                                    <translat key-val="השתמש בכרטיס שמור" key-path="Financial.Deposit.html"></translat>
-	                                </div>
-	                                <div class="sc_contant_right_text row_credit_right check_credit_div">
-	                                    <div>
-	                                    	<input type="checkbox" id="UseCreditToken" ng-model="ModelDeposit.UseCreditToken" class="check_credit" style="display: block;" />
-
-	                                    </div>
-	                                </div>
-	                                <div class="sc_contant_lf_text row1">
-	                                    {{ModelDeposit.CardNumber}}
-	                                </div>
-	                            </div>
-	                            <div class="" ng-hide="$ShowDepositState">
-	                                <div class="sc_contant_lf_text">
-	                                    <translat key-val="שמור כרטיס לשימוש חוזר" key-path="Financial.Deposit.html"></translat>
-	                                </div>
-	
-	                                <div class="sc_contant_right_text">
-	                                    <div style="margin-top: 11%;">
-	                                        <input type="checkbox" id="SaveCreditToken" class="css-checkbox" ng-model="ModelDeposit.SaveCreditToken" />
-	                                        <label for="SaveCreditToken" class="css-label"> </label>
-	                                    </div>
-	                                </div>
-	                            </div>
-								
-	                            <button type="submit" class="sin_in_up green" style="width: 100% !important;margin-top: 30px;">
-	                                <translat key-val="המשך" key-path="Financial.Deposit.html"></translat>
-	                            </button>
-	                        </div>
-	                    </form>
-					</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->

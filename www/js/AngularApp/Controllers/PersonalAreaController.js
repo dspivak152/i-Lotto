@@ -68,18 +68,17 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                 && $item !== '';
         }
         function convertDate(inputFormat, addTime) {
-            function pad(s) { return (s < 10) ? '0' + s : s; }
-            function year(y) { return y > 2000 ? y.toString().replace('20', '') : y.toString().split('').splice(2, 2).join(''); }
-            var d = new Date(inputFormat);
-            if (d == 'Invalid Date') {
-                var a = inputFormat.split(/[^0-9]/);
-                d = new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
-            }
+            if (inputFormat == null || !inputFormat || typeof inputFormat == 'undefined' || inputFormat.length < 5)
+                return void [0];
 
-            d.setHours(d.getHours());
-            var retDate = [pad(d.getDate()), pad(d.getMonth() + 1), year(d.getFullYear())].join('/');
-            if (addTime) retDate += ' ' + [pad(d.getHours()), pad(d.getMinutes())].join(':');
-            return retDate;
+            var val = inputFormat.split('T'), date = val[0].split('-'), time = val[1].split(':').slice(0, 2).join(':');
+            if (parseInt(date[0]) > 2000)
+                date[0] = String(parseInt(date[0]) - 2000);
+            if(addTime ){
+                return date.reverse().join('/') + ' ' + time;
+            }else{
+                return date.reverse().join('/');
+            }
         }
         var SplitArrayToParts = function (parent, child) {
             child.sort(function (a, b) {

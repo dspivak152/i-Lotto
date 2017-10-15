@@ -142,9 +142,8 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
                             if (response.data.success) {
                                 localStorageService.remove('SavedPageForMony');
                                 ProductService.setProductForm(null);
-
-                               windowPayment = window.open($rootScope.$imageUrl + 'Payment/RedirectFormToZ?formId=' + response.data.data, '_blank', 'location=yes');
-                               windowPayment.addEventListener('loadstop', windowPayment_loadStartHandler);
+                               
+                                $scope.broadcastHome($scope.WindowOpen(response.data.data));
                             }
                             else {
                                 ////form dident save
@@ -179,6 +178,11 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
                 }
             }
             return $inputs;
+        }
+        $scope.WindowOpen = function (data) {
+            windowPayment = window.open($rootScope.$imageUrl + 
+                'Payment/RedirectFormToZ?formId=' + data, '_blank', 'location=yes');
+            windowPayment.addEventListener('loadstop', windowPayment_loadStartHandler);
         }
 
         ///close the nav-bar after redirection
