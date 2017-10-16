@@ -179,9 +179,11 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
             return $inputs;
         }
         $scope.WindowOpen = function (data) {
-            windowPayment = window.open($rootScope.$imageUrl + 
-                'Payment/RedirectFormToZ?formId=' + data, '_blank', 'location=yes');
-            windowPayment.addEventListener('loadstop', windowPayment_loadStartHandler);
+            // windowPayment = window.open($rootScope.$imageUrl + 
+            //     'Payment/RedirectFormToZ?formId=' + data, '_blank', 'location=yes');
+            // windowPayment.addEventListener('loadstop', windowPayment_loadStartHandler);
+
+            window.open($rootScope.$imageUrl + 'Payment/RedirectFormToZ?formId=' + data, '_blank', 'location=yes');
         }
 
         ///close the nav-bar after redirection
