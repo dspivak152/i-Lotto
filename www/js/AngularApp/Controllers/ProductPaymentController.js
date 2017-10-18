@@ -1,5 +1,4 @@
 ﻿'use strict';
-
 IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$state', 'LogInService', 'localStorageService', 'NotificationService', 'ProductService', 'DataModelsService', 'ngDialog', 'MenuService', '$ProductForm', 'PaymentService', '$window'
     , '$timeout', '$location',
     function ($rootScope, $scope, $state, LogInService, localStorageService, NotificationService, ProductService, DataModelsService,
@@ -72,29 +71,29 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
             localStorageService.remove('SavedPageForMony');
         }
 
-        $scope.Pay = function (form) {
-            ///save the form and open new page for site pay
-            ProductService.SaveForm(form)
-                .then(function (res) {
-                    if (res.data.success) {///success
-                        $scope.ResetAndRedirect(res.data);
-                    } else {///error
-                        NotificationService.Error({ message: res.data.message, delay: 750 }, $scope.broadcastHome);
-                    }
-                });
-        }
+        // $scope.Pay = function (form) {
+        //     ///save the form and open new page for site pay
+        //     ProductService.SaveForm(form)
+        //         .then(function (res) {
+        //             if (res.data.success) {///success
+        //                 $scope.ResetAndRedirect(res.data);
+        //             } else {///error
+        //                 NotificationService.Error({ message: res.data.message, delay: 750 }, $scope.broadcastHome);
+        //             }
+        //         });
+        // }
 
-        $scope.ResetAndRedirect = function (ResData) {
-            localStorageService.remove('SavedPageForMony');
-            ProductService.setProductForm(null);
+        // $scope.ResetAndRedirect = function (ResData) {
+        //     localStorageService.remove('SavedPageForMony');
+        //     ProductService.setProductForm(null);
 
-            var message = ResData.message.split('[||]');
-            var data = {
-                formID: ResData.data,
-                Ukey: $scope.userCredentials.UserGuid.replace(/[+]/g, '[]')
-            };
-            OpenWindowWithPost(data);
-        }
+        //     var message = ResData.message.split('[||]');
+        //     var data = {
+        //         formID: ResData.data,
+        //         Ukey: $scope.userCredentials.UserGuid.replace(/[+]/g, '[]')
+        //     };
+        //     OpenWindowWithPost(data);
+        // }
 
         $scope.UsingWebService = function (form) {
             ProductService.WebServicePay(form)
@@ -151,33 +150,33 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
                             //console.log(response)
                         }, function errorCallback(response) {
                             NotificationService.Error({ message: $scope.FormMessagesModel.formMonyError, delay: 750 }, $scope.broadcastHome);
-                        }, );
+                        });
                 }
 
-        var MapObject = function (item, name, $inputs) {
-            if (typeof $inputs === 'undefined')
-                $inputs = [];
-            if (typeof name === 'undefined')
-                name = '';
-            for (var i in item) {
-                if (isNaN(i) && name.lastIndexOf('.') < (name.length - 1) && isNaN(name.substring(name.indexOf('Tables[') + 7, name.length)))
-                    name += '.';
-                if (typeof item[i] === 'object') {
-                    MapObject(item[i], (name + (isNaN(i)? "":"[") + i), $inputs);
-                }
-                if (typeof item[i] !== 'object' && typeof item[i] !== 'function') {
-                    if (name.indexOf('Tables[') > 0 && !isNaN(name.substring(name.indexOf('Tables[') + 7, name.length))) {
-                        name += '].';
-                    }
-                    var input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = (name + '' + i);
-                    input.value = item[i];
-                    $inputs.push(input);
-                }
-            }
-            return $inputs;
-        }
+        // var MapObject = function (item, name, $inputs) {
+        //     if (typeof $inputs === 'undefined')
+        //         $inputs = [];
+        //     if (typeof name === 'undefined')
+        //         name = '';
+        //     for (var i in item) {
+        //         if (isNaN(i) && name.lastIndexOf('.') < (name.length - 1) && isNaN(name.substring(name.indexOf('Tables[') + 7, name.length)))
+        //             name += '.';
+        //         if (typeof item[i] === 'object') {
+        //             MapObject(item[i], (name + (isNaN(i)? "":"[") + i), $inputs);
+        //         }
+        //         if (typeof item[i] !== 'object' && typeof item[i] !== 'function') {
+        //             if (name.indexOf('Tables[') > 0 && !isNaN(name.substring(name.indexOf('Tables[') + 7, name.length))) {
+        //                 name += '].';
+        //             }
+        //             var input = document.createElement('input');
+        //             input.type = 'hidden';
+        //             input.name = (name + '' + i);
+        //             input.value = item[i];
+        //             $inputs.push(input);
+        //         }
+        //     }
+        //     return $inputs;
+        // }
         $scope.WindowOpen = function (data) {
             // windowPayment = window.open($rootScope.$imageUrl + 
             //     'Payment/RedirectFormToZ?formId=' + data, '_blank', 'location=yes');
