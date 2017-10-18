@@ -177,6 +177,9 @@ IlottoApp.controller('ProductPaymentController', ['$rootScope', '$scope', '$stat
         //     }
         //     return $inputs;
         // }
+
+        /* this is new code */
+        /* kalman gueta is fuking a goat */
         $scope.WindowOpen = function (data) {
             // windowPayment = window.open($rootScope.$imageUrl + 
             //     'Payment/RedirectFormToZ?formId=' + data, '_blank', 'location=yes');
