@@ -52,7 +52,7 @@ IlottoApp.controller('UpdateDetailsController', ['$rootScope', '$scope', '$http'
 
         var returnFull = function (cell, phone) {
             if(phone && phone.length > 7)
-                return phone
+                return phone;
             if (cell && cell.length > 7)
                 return cell;
             return '';
@@ -81,7 +81,7 @@ IlottoApp.controller('UpdateDetailsController', ['$rootScope', '$scope', '$http'
         if ($scope.Token && $scope.Token.length > 10) {
             ///ConfirmUser check user
             if (!$scope.$User || typeof $scope.$User !== 'object' || typeof $scope.$User.data !== 'object') {
-                NotificationService.Error({ message: $Message, replaceMessage: true, delay: 3000 }, $state.go("Home"));
+                NotificationService.Error({ message: $Message, replaceMessage: true, delay: 6000 }, $state.go("Home"));
                 return;
             }
             try {
@@ -98,7 +98,7 @@ IlottoApp.controller('UpdateDetailsController', ['$rootScope', '$scope', '$http'
                     Password: null,
                 };
             } catch (e) {
-                NotificationService.Error({ message: $Message, replaceMessage: true, delay: 3000 }, $state.go("Home"));
+                NotificationService.Error({ message: $Message, replaceMessage: true, delay: 6000 }, $state.go("Home"));
             }
         } else {
             $scope.Credentials = localStorageService.get('credentials');
@@ -155,7 +155,6 @@ IlottoApp.controller('UpdateDetailsController', ['$rootScope', '$scope', '$http'
                     }
                 })
                 .error(function (res) {
-                    console.log('error',res);
                     NotificationService.Error({ message: 'Fatal Error!', delay: 5000 }, $state.go("Home"));
                 });
         }

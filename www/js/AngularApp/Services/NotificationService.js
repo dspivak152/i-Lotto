@@ -6,7 +6,7 @@
             type: (Note.type && Note.type != '' ? Note.type : 'success'),
             message: (Note.message && Note.message != '' ? Note.message : null),
             title: (Note.title && Note.title != '' ? Note.title : null),
-            delay: (isNaN(Note.delay) ? 6000 : Note.delay),
+            delay: (isNaN(Note.delay) ? (Note.type == 'error'? 9000 : 6000) : Note.delay),
             replaceMessage: (Note.replaceMessage ? true : false),
             positionX: (Note.positionX && Note.positionX != '' ? Note.positionX : "center")
         };

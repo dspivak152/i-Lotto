@@ -4,8 +4,6 @@ IlottoApp.controller('RegisterController', ['$rootScope', '$scope', '$http', '$s
 
         openFB.init({ appId: '252454821884548' });
 
-        window.$scope = $scope;
-        window.$state = $state;
         $scope.sigein = false;
         $scope.fbuser = {
             id: null,
