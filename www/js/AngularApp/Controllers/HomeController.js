@@ -26,6 +26,8 @@ IlottoApp.controller('HomeController', ['$rootScope', '$scope', '$Page', '$state
         $scope.userCredentials = localStorageService.get('credentials');
         
         $scope.NextRaffle = $NextRaffle.data.data;
+        $scope.NextRaffle.DoubleSum = parseInt($scope.NextRaffle.DoubleSum / 1000000);
+        $scope.NextRaffle.RegSum = parseInt($scope.NextRaffle.RegSum / 1000000);
         
         ///close the nav-bar after redirection
         $rootScope.$broadcast('Close-NavBar');
