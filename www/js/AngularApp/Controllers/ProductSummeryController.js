@@ -150,20 +150,6 @@ IlottoApp.controller('ProductSummeryController', ['$rootScope', '$scope', '$stat
         $RufflesList.data.map(function (r, Index) {
             $scope.RuffleNumbers.push({ id: r.ID, number: r.RaffleNumber });
         });
-
-        var UserNoMonyDecision = function () {
-            ///save the form
-            ProductService.setProductForm($ProductForm);
-            localStorageService.add('SavedPageForMony', $ProductForm);
-            ///open the no mony page
-            ngDialog.open({
-                template: 'Html/Ng-Dialog/Form.NoMonyDecision.html',
-                controller: 'PaymentDecisionController',
-                scope: $scope,
-                backdrop: 'static',
-                showClose: false
-            });
-        };
         
         $scope.ReturnToForm = function () {
             ////save form and go back
