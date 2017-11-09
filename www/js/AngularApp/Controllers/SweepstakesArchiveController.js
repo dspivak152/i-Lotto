@@ -6,8 +6,7 @@ IlottoApp.controller('SweepstakesArchiveController', ['$rootScope', '$scope', '$
         function convertDate(inputFormat, addTime) {
             function pad(s) { return (s < 10) ? '0' + s : s; }
             function year(y) {
-                return y > 2000 ? y.toString().replace('20', '') : y.toString().split('').splice(2, 2).join('')
-                "69";
+                return y > 2000 ? y.toString().replace('20', '') : y.toString().split('').splice(2, 2).join('');
             }
             var d = new Date(inputFormat);
             if (d == 'Invalid Date') {

@@ -4,8 +4,6 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
     function ($rootScope, $scope, PersonalAreaService, $state, LogInService, localStorageService, NotificationService,
         MenuService, ngDialog, ProductService, $FormsSettings, ModalServic, $filter) {
         
-        window.$scope = $scope;
-
         $scope.ShowForms = {};
         $scope.showIndex = 0;
 
@@ -359,10 +357,10 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                 },
                 Active: true,
                 Show: true,
-                CheckboxArray: new Array,
-                StrongArray: new Array,
-                StrongValArray: new Array,
-                ValArray: new Array,
+                CheckboxArray: new Array(),
+                StrongArray: new Array(),
+                StrongValArray: new Array(),
+                ValArray: new Array(),
                 tableNumber: null,
             };
             //re-create the tables
@@ -425,7 +423,6 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
 
             localStorageService.add('SavedPageForMony', Form);
             $state.go("Product.form", { ProdId: FormsSettings.ProductID });
-            //console.log(FormsSettings.ProductID);
         }
 
         ///select number/type of form pop up - cant close b-4 selecting

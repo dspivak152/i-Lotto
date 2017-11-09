@@ -190,7 +190,8 @@ IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'Dat
             $scope.ShowBanks = false;
             $scope.ShowBanksForm = false;
         };
-        
+        /* this is new code */
+        /* kalman gueta is fuking a goat */
         $scope.WindowOpen = function (Amount) {
             windowPayment = $window.open(
                             $rootScope.$imageUrl

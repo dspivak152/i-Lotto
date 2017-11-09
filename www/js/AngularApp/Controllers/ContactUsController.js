@@ -49,10 +49,7 @@ IlottoApp.controller('ContactUsController',
                 InvalidateForm(ContactForm);
                 Contact.$error.firstName = true;
             }
-            //if (!Contact.lastName || Contact.lastName.length < 2) {
-            //    InvalidateForm(ContactForm);
-            //    Contact.$error.lastName = true;
-            //}
+            
             if (!Contact.userName || Contact.userName.length < 2) {
                 InvalidateForm(ContactForm);
                 Contact.$error.userName = true;
