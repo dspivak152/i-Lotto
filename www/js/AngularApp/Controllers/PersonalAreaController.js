@@ -80,22 +80,15 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                 return date.reverse().join('/');
             }
         }
-        var SplitArrayToParts = function (parent, child) {
-            child.sort(function (a, b) {
+        var SplitArrayToParts = function (array) {
+            array.sort(function (a, b) {
                 return b.number - a.number;
             });
-            if (child.length < 7) {
-                parent.push(child);
-            } else {
-                var length = child.length;
-                while (length > 0) {
-                    length -= 6;
-                    //var r1 = child.splice(child.length - 6, 6);
-                    var r1 = child.splice(child.length - 6, child.length)
-                    //var r1 = child.splice(0, 6);
-                    parent.push(r1);
-                }
-            }
+            var groups = array.map(function (e, i) {
+                return i % 6 === 0 ? array.slice(i, i + 6) : null;
+            })
+            .filter(function (e) { return e; });
+            return groups;
         }
         ///pager
         $scope.$Pager = {
@@ -621,7 +614,7 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                     }
                     t.NumbersObj.push(Row);
                 });
-                SplitArrayToParts(t.HNumbersObj,angular.copy(t.NumbersObj));
+                t.HNumbersObj = SplitArrayToParts(angular.copy(t.NumbersObj));
                 ///check stron for win
                 t.StrongArray.filter(function (TSN) {
                     var Row = angular.copy(NumberRow);
@@ -631,7 +624,7 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                     }
                     t.StrongObj.push(Row);
                 });
-                SplitArrayToParts(t.HStrongObj, angular.copy(t.StrongObj));
+                t.HStrongObj = SplitArrayToParts(angular.copy(t.StrongObj));
             });
 
             $form.$$winShow = ['OldForms', 'Wins'].indexOf($scope.$Type) >= 0;
