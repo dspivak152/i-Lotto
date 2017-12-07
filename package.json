@@ -1,34 +1,34 @@
 {
-    "name": "helloworld",
-    "displayName": "HelloCordova",
-    "version": "1.0.0",
-    "description": "A sample Apache Cordova application that responds to the deviceready event.",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Apache Cordova Team",
-    "license": "Apache-2.0",
-    "dependencies": {
-        "cordova-android": "^6.2.3",
-        "cordova-plugin-device": "^1.1.6",
-        "cordova-plugin-googleplus": "^5.1.1",
-        "cordova-plugin-inappbrowser": "^1.7.1",
-        "cordova-plugin-whitelist": "^1.3.2",
-        "phonegap-plugin-push": "^1.10.5"
-    },
-    "cordova": {
-        "plugins": {
-            "cordova-plugin-whitelist": {},
-            "phonegap-plugin-push": {
-                "SENDER_ID": "85075801930"
-            },
-            "cordova-plugin-device": {},
-            "cordova-plugin-inappbrowser": {},
-            "cordova-plugin-googleplus": {
-                "REVERSED_CLIENT_ID": "994611551395-okvik9e0u7ck94iea0pb04q3a9vimnnd.apps.googleusercontent.com"
-            },
-            "Device": {}
-        }
+  "name": "helloworld",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cordova-android": "^6.2.3",
+    "cordova-plugin-device": "^1.1.6",
+    "cordova-plugin-googleplus": "^5.1.1",
+    "cordova-plugin-inappbrowser": "^1.7.1",
+    "cordova-plugin-whitelist": "^1.3.2",
+    "phonegap-plugin-push": "^1.10.5"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "phonegap-plugin-push": {
+        "SENDER_ID": "85075801930"
+      },
+      "cordova-plugin-device": {},
+      "cordova-plugin-inappbrowser": {},
+      "Device": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "994611551395-okvik9e0u7ck94iea0pb04q3a9vimnnd.apps.googleusercontent.com"
+      }
     }
+  }
 }

@@ -41,6 +41,9 @@
         },
         RegisterUserMobileDeviceId: function (mobileDeviceData) {
             return $http.post(setAction('RegisterMobileDeviceId'), JSON.stringify(mobileDeviceData), "json", "application/json; charset=utf-8");
+        },
+        WriteLogAction: function (message) {
+            return $http.post(setAction('WriteLogAction') + '?message=' + message, JSON.stringify(message), "json", "application/json; charset=utf-8");
         }
     }
 }]);

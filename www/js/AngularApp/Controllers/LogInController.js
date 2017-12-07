@@ -229,6 +229,7 @@ IlottoApp.controller('LogInController',
                 window.plugins.googleplus.login(
                     {
                         //'scopes': '... ', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+                        //'webClientId': '994611551395-30p2uhl1thoci46a73lka9m6t10jkufr.apps.googleusercontent.com',
                         'webClientId': '994611551395-30p2uhl1thoci46a73lka9m6t10jkufr.apps.googleusercontent.com',
                         // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
                         'offline': true, // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
@@ -238,7 +239,13 @@ IlottoApp.controller('LogInController',
                     },
                     function (msg) {
                         console.log('error: ', msg);
-                        $scope.NotificationService.Error({ message: 'התרחשה תקלה חמורה, אנא נסה שנית מאוחר יותר.', replaceMessage: true });
+                        LogInService.WriteLogAction(msg.toString());
+                        // .then(function (res) {
+                        //     var responce = res.data;
+                            
+                        // });
+                        //$scope.NotificationService.Error({ message: 'התרחשה תקלה חמורה, אנא נסה שנית מאוחר יותר.', replaceMessage: true });
+                        $scope.NotificationService.Error({ message: msg.toString(), replaceMessage: true, delay: 9000 });
                     }
                 );
             }

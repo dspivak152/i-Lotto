@@ -3,7 +3,6 @@
 IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'DataModelsService', '$state', '$stateParams', 'LogInService', 'localStorageService', 'NotificationService', 'MenuService', 'ngDialog', 'ProductService', '$window',
     function ($rootScope, $scope, $Page, DataModelsService, $state, $stateParams, LogInService, localStorageService, NotificationService, MenuService, ngDialog, ProductService, $window) {
         
-		state = $state;
         var broadcastHome = function (func) {
             $state.go("Home");
             if (typeof func == 'function')
@@ -191,7 +190,8 @@ IlottoApp.controller('DepositController', ['$rootScope', '$scope', '$Page', 'Dat
             $scope.ShowBanks = false;
             $scope.ShowBanksForm = false;
         };
-        
+        /* this is new code */
+        /* kalman gueta is fuking a goat */
         $scope.WindowOpen = function (Amount) {
             windowPayment = $window.open(
                             $rootScope.$imageUrl
