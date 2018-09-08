@@ -3,7 +3,8 @@
         <div class="xs-3">
             <p>
                 {{form.BaseFormTypeName}}
-                <span class="blue_result">{{form.RaffleType}}</span>
+                 <span class="blue_result" ng-if="form.BaseFormTypeID === 1 || form.BaseFormTypeID === 2">{{form.Tables.length}}</span>
+                <span class="blue_result" ng-if="form.BaseFormTypeID !== 1 && form.BaseFormTypeID !== 2">{{form.RaffleType}}</span>
             </p>
         </div>
         <div class="xs-3">
