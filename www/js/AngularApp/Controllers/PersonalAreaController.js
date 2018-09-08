@@ -355,8 +355,8 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                         shortMessege: "מעט מדי מספרים חזקים",
                     }
                 },
-                Active: true,
-                Show: true,
+                Active: false,
+                Show: false,
                 CheckboxArray: new Array(),
                 StrongArray: new Array(),
                 StrongValArray: new Array(),
@@ -368,6 +368,7 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                 var $table = angular.copy(Table);
                 $table.tableNumber = (Index + 1);
                 $table.Show = $table.tableNumber > 1 ? false : true;
+                $table.Active = true;
                 $table.CheckboxArray = SplitArrayToValObj(T.Numbers);
                 $table.StrongArray = SplitArrayToValObj(T.StrongNumbers);
                 $table.StrongValArray = SplitToIntArray(T.StrongNumbers);
@@ -402,7 +403,7 @@ IlottoApp.controller('PersonalAreaController', ['$rootScope', '$scope', 'Persona
                     MaxTables: FormsSettings.MaxTables,
                     MinTables: FormsSettings.MinTables,
                     Name: FormsSettings.Name,
-                    Selected_SelectionOptions: $form.RaffleType,
+                    Selected_SelectionOptions: ($form.BaseFormTypeID === 1 || $form.BaseFormTypeID === 2 ? $form.Tables.length : $form.RaffleType),
                     SelectionOptions: FormsSettings.SelectionOptions,
                     StrongAmountPerTable: null,
                     StrongNumber: $StrongNumber,
