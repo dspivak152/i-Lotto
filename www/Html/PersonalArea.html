@@ -159,7 +159,8 @@
                                         </td>
                                         <td>
                                             {{form.BaseFormTypeName}}
-                                            {{form.RaffleType}}
+                                            <span ng-if="form.BaseFormTypeID === 1 || form.BaseFormTypeID === 2">{{form.Tables.length}}</span>
+                                            <span ng-if="form.BaseFormTypeID !== 1 && form.BaseFormTypeID !== 2">{{form.RaffleType}}</span>
                                         </td>
                                         <td>
                                             <div>{{form.FormCost}}</div>
